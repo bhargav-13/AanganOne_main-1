@@ -34,7 +34,7 @@ function OurStory() {
                 Home
               </Link>
               <Link
-                to="/feature"
+                to="/about"
                 className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-lg"
               >
                 Feature

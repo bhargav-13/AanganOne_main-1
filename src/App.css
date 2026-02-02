@@ -28,7 +28,7 @@ body {
 }
 
 .section-padding {
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
 /* About Section */
@@ -251,7 +251,7 @@ body {
 
 /* Reach Communities Section */
 .reach-communities {
-  padding: 80px 0;
+  padding: 50px 0;
   background: #f5f5f5;
   font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -822,7 +822,7 @@ body {
 
 @media (max-width: 767px) {
   .testimonials {
-    padding: 60px 0;
+    padding: 30px 0;
   }
 
   .testimonials .section-title {
@@ -1150,8 +1150,8 @@ body {
   }
 
   .how-it-works-hero-button {
-    padding: 14px 32px;
-    font-size: 16px;
+    padding: 10px 20px;
+    font-size: 14px;
   }
 
   .how-it-works-circle-1,
@@ -1164,7 +1164,7 @@ body {
 
 /* How It Works Content Section */
 .how-it-works-content {
-  padding: 80px 0;
+  padding: 50px 0;
   background: #F7F7F7;
   font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -1304,6 +1304,7 @@ body {
 .flip-card-front,
 .flip-card-back {
   width: 100%;
+  height: 500px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 24px;
@@ -1311,7 +1312,6 @@ body {
 }
 
 .flip-card-front {
-  height: 400px;
   /* Fixed height */
   position: relative;
   z-index: 2;
@@ -1321,7 +1321,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   overflow-y: auto;
   transform: rotateY(180deg);
   background-color: white;
@@ -1356,18 +1355,7 @@ body {
   z-index: 0;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -150px;
-  left: -150px;
-  width: 400px;
-  height: 400px;
-  background: #E8EAFF;
-  border-radius: 50%;
-  opacity: 1;
-  z-index: 0;
-}
+
 
 .hero-bubble-1 {
   content: '';
@@ -2129,7 +2117,7 @@ body {
 
 @media (max-width: 768px) {
   .about-section {
-    padding: 60px 16px;
+    padding: 30px 16px;
   }
 
   .about-container {
@@ -2486,7 +2474,7 @@ body {
 
 @media (max-width: 767px) {
   .features-section {
-    padding: 56px 16px;
+    padding: 30px 16px;
   }
 
   .features-title {
@@ -2887,7 +2875,8 @@ body {
 
 @media (max-width: 767px) {
   .registration {
-    padding: 60px 0;
+    padding: 40px 0 50px 0;
+    margin-bottom: 0;
   }
 
   .registration .section-title {
@@ -2936,7 +2925,7 @@ body {
 
 @media (max-width: 768px) {
   .why-choose {
-    padding: 40px 0;
+    padding: 20px 0 30px 0;
   }
 
   .why-choose .section-title {
@@ -2996,7 +2985,7 @@ body {
 
 @media (max-width: 768px) {
   .impact-section {
-    padding: 60px 16px;
+    padding: 30px 16px;
   }
 
   .impact-title {
@@ -3275,7 +3264,7 @@ body {
   }
 
   .how-it-works-hero-container {
-    padding: 0 20px;
+    padding: 50px 20px 0px 20px;
   }
 
   .how-it-works-hero-title {
@@ -3388,7 +3377,7 @@ body {
 @media (max-width: 768px) {
   .hero {
     padding-top: 140px !important;
-    padding-bottom: 60px !important;
+    padding-bottom: 20px !important;
   }
 }
 
@@ -3483,7 +3472,7 @@ body {
   }
 
   .footer {
-    padding: 40px 0 30px;
+    padding: 20px 0 30px;
   }
 
   .footer .container {
@@ -3700,5 +3689,60 @@ body {
 @media (min-width: 768px) {
   .section-title {
     font-size: 48px;
+  }
+}
+
+/* Mobile: Gap between section badge and header */
+@media (max-width: 768px) {
+
+  .why-choose .section-title,
+  .faq .section-title,
+  .testimonials .section-title,
+  .registration .section-title {
+    margin-top: -5px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 50px 16px !important;
+  }
+
+  .feature-hero {
+    min-height: auto !important;
+    padding: 230px 0 50px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-padding {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-section {
+    padding: 50px 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .impact-section {
+    padding: 50px 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid.gap-6 {
+    gap: 0.75rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .flip-card-front,
+  .flip-card-back {
+    height: 400px !important;
   }
 }

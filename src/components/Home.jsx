@@ -370,9 +370,9 @@ function Home() {
                 <div className="footer-nav">
                   <Link to="/">Home</Link>
                   <span className="bullet">•</span>
-                  <Link to="/feature">About</Link>
+                  <Link to="/about">About</Link>
                   <span className="bullet">•</span>
-                  <Link to="/how-it-works">Features</Link>
+                  <Link to="/features">Features</Link>
                   <span className="bullet">•</span>
                   <Link to="/privacy-policy">Privacy Policy</Link>
                   <span className="bullet">•</span>

@@ -21,13 +21,13 @@ function Navbar({ simple, isDark }) {
         <div className="flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-4">
+            <Link to="/" className="flex items-center gap-2 md:gap-4">
               <img
                 src="/images/Aanganone-logo.svg"
                 alt="AANGANOne Logo"
-                className="h-12 w-auto"
+                className="h-8 md:h-12 w-auto"
               />
-              <span className={`text-2xl font-bold ${textColor}`}>AanganOne</span>
+              <span className={`text-xl md:text-2xl font-bold ${textColor}`}>AanganOne</span>
             </Link>
           </div>
 
@@ -35,9 +35,9 @@ function Navbar({ simple, isDark }) {
             <div className="flex items-center">
               <Link
                 to="/"
-                className="text-[#7B2CBF] font-medium text-sm md:text-lg px-4 py-1.5 md:px-6 md:py-2 border-2 border-[#7B2CBF] rounded-full hover:bg-[#7B2CBF] hover:text-white transition-all duration-300"
+                className="text-[#7B2CBF] font-bold text-xs md:text-lg px-3 py-1.5 md:px-6 md:py-2 border-2 border-[#7B2CBF] rounded-full hover:bg-[#7B2CBF] hover:text-white transition-all duration-300 whitespace-nowrap"
               >
-                ← Back to Home
+                ← Back
               </Link>
             </div>
           ) : (
@@ -51,14 +51,14 @@ function Navbar({ simple, isDark }) {
                   Home
                 </Link>
                 <Link
-                  to="/feature"
-                  className={`${isActive('/feature')} transition-colors duration-200 text-lg`}
+                  to="/about"
+                  className={`${isActive('/about')} transition-colors duration-200 text-lg`}
                 >
                   About
                 </Link>
                 <Link
-                  to="/how-it-works"
-                  className={`${isActive('/how-it-works')} transition-colors duration-200 text-lg`}
+                  to="/features"
+                  className={`${isActive('/features')} transition-colors duration-200 text-lg`}
                 >
                   Features
                 </Link>
@@ -120,14 +120,14 @@ function Navbar({ simple, isDark }) {
                   Home
                 </Link>
                 <Link
-                  to="/feature"
+                  to="/about"
                   className="text-gray-800 hover:text-[#7b3cff] font-medium text-xl border-b border-gray-100 pb-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
                 </Link>
                 <Link
-                  to="/how-it-works"
+                  to="/features"
                   className="text-gray-800 hover:text-[#7b3cff] font-medium text-xl border-b border-gray-100 pb-4"
                   onClick={() => setIsMenuOpen(false)}
                 >

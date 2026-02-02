@@ -42,7 +42,7 @@ function Feature() {
           <div className="max-w-fit mx-auto">
             {/* Section Title */}
             <h2
-              className="text-3xl md:text-4xl font-semibold text-left mb-10 pl-2"
+              className="text-[32px] md:text-[48px] font-semibold text-left mb-10 pl-2"
               style={{ color: '#473F52' }}
             >
               One Platform for Everyday Community Needs
@@ -118,7 +118,7 @@ function Feature() {
       <section className="relative z-10 section-padding bg-[#F7F7F7]">
         <div className="container-padding">
           <div className="text-center mb-16">
-            <h2 className="text-[36px] md:text-[56px] font-semibold mb-4 leading-[1.2]" style={{ color: '#473F52' }}>
+            <h2 className="text-[32px] md:text-[48px] font-semibold mb-4 leading-[1.2]" style={{ color: '#473F52' }}>
               From the Aanganone Blog
             </h2>
             <p className="text-[16px] md:text-[20px] font-normal" style={{ color: '#77787C' }}>
@@ -128,62 +128,62 @@ function Feature() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Card 1: Blue */}
-            <div className="rounded-3xl p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#4D71FF4D' }}>
-              <span className="text-[#4361EE] font-medium text-xl">Management</span>
-              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-36 md:w-40 bg-[#4361EE] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
+            <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#4D71FF4D' }}>
+              <span className="text-[#4361EE] font-medium text-base md:text-xl relative z-10">Management</span>
+              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-38 bg-[#4361EE] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                 <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                 <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                <p className="text-white text-xs font-medium leading-tight px-2">Smarter Community<br />Management Starts<br />Here</p>
+                <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
               </div>
             </div>
 
             {/* Card 2: Yellow */}
-            <div className="rounded-3xl p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FFCC4D4D' }}>
-              <span className="text-[#FBBF24] font-medium text-xl">Management</span>
-              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-36 md:w-40 bg-[#FBBF24] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
+            <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FFCC4D4D' }}>
+              <span className="text-[#FBBF24] font-medium text-base md:text-xl relative z-10">Management</span>
+              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-38 bg-[#FBBF24] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                 <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                 <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                <p className="text-white text-xs font-medium leading-tight px-2">Smarter Community<br />Management Starts<br />Here</p>
+                <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
               </div>
             </div>
 
             {/* Card 3: Green */}
-            <div className="rounded-3xl p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#BDFFD9' }}>
-              <span className="text-[#34D399] font-medium text-xl">Management</span>
-              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-36 md:w-40 bg-[#34D399] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
+            <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#BDFFD9' }}>
+              <span className="text-[#34D399] font-medium text-base md:text-xl relative z-10">Management</span>
+              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-38 bg-[#34D399] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                 <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                 <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                <p className="text-white text-xs font-medium leading-tight px-2">Smarter Community<br />Management Starts<br />Here</p>
+                <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
               </div>
             </div>
 
             {/* Card 4: Pink */}
-            <div className="rounded-3xl p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FF4DCD4D' }}>
-              <span className="text-[#F472B6] font-medium text-xl">Management</span>
-              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-36 md:w-40 bg-[#F472B6] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
+            <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FF4DCD4D' }}>
+              <span className="text-[#F472B6] font-medium text-base md:text-xl relative z-10">Management</span>
+              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-38 bg-[#F472B6] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                 <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                 <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                <p className="text-white text-xs font-medium leading-tight px-2">Smarter Community<br />Management Starts<br />Here</p>
+                <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
               </div>
             </div>
 
             {/* Card 5: Purple */}
-            <div className="rounded-3xl p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#8739FD33' }}>
-              <span className="text-[#8B5CF6] font-medium text-xl">Management</span>
-              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-36 md:w-40 bg-[#8B5CF6] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
+            <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#8739FD33' }}>
+              <span className="text-[#8B5CF6] font-medium text-base md:text-xl relative z-10">Management</span>
+              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-38 bg-[#8B5CF6] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                 <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                 <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                <p className="text-white text-xs font-medium leading-tight px-2">Smarter Community<br />Management Starts<br />Here</p>
+                <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
               </div>
             </div>
 
             {/* Card 6: Red/Coral */}
-            <div className="rounded-3xl p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FF4D4D4D' }}>
-              <span className="text-[#FF4D4D] font-medium text-xl">Management</span>
-              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-36 md:w-40 bg-[#FF4D4D] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
+            <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FF4D4D4D' }}>
+              <span className="text-[#FF4D4D] font-medium text-base md:text-xl relative z-10">Management</span>
+              <div className="absolute right-4 md:right-10 top-6 bottom-6 w-38 bg-[#FF4D4D] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                 <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                 <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                <p className="text-white text-xs font-medium leading-tight px-2">Smarter Community<br />Management Starts<br />Here</p>
+                <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
               </div>
             </div>
           </div>
@@ -197,7 +197,7 @@ function Feature() {
         <div className="container-padding">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-[36px] md:text-[56px] font-semibold mb-4 leading-[1.2]" style={{ color: '#473F52' }}>
+            <h2 className="text-[32px] md:text-[48px] font-semibold mb-4 leading-[1.2]" style={{ color: '#473F52' }}>
               Built for Communities, Guided by Values
             </h2>
             <p className="text-[16px] md:text-[20px] font-normal" style={{ color: '#77787C' }}>
@@ -414,9 +414,9 @@ function Feature() {
                 <div className="footer-nav">
                   <Link to="/">Home</Link>
                   <span className="bullet">•</span>
-                  <Link to="/feature">About</Link>
+                  <Link to="/about">About</Link>
                   <span className="bullet">•</span>
-                  <Link to="/how-it-works">Features</Link>
+                  <Link to="/features">Features</Link>
                   <span className="bullet">•</span>
                   <Link to="/privacy-policy">Privacy Policy</Link>
                   <span className="bullet">•</span>

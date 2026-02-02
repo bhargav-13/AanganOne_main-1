@@ -8,7 +8,7 @@ function Hero() {
             <Navbar />
             <div className="hero-bubble-1"></div>
             <div className="hero-bubble-2"></div>
-            <div className="hero-bubble-3"></div>
+
             <div className="hero-bubble-4"></div>
             <div className="hero-bubble-5"></div>
             <div className="container">
@@ -27,7 +27,7 @@ function Hero() {
                         Request a Demo
                         <span className="arrow">→</span>
                     </Link>
-                    <Link to="/how-it-works" className="btn-secondary">
+                    <Link to="/features" className="btn-secondary">
                         Explore a features
                     </Link>
                 </div>

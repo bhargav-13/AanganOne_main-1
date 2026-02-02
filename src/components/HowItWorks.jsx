@@ -236,7 +236,7 @@ function HowItWorks() {
                 <div className="container-padding">
                     {/* Section Title */}
                     <h2
-                        className="text-3xl md:text-4xl font-semibold text-center mb-10"
+                        className="text-[32px] md:text-[48px] font-semibold text-center mb-10"
                         style={{ color: '#473F52' }}
                     >
                         4. Privacy at the Heart of Aanganone
@@ -342,7 +342,7 @@ function HowItWorks() {
                 <div className="container-padding">
                     {/* Section Title */}
                     <h2
-                        className="text-3xl md:text-4xl font-semibold text-center mb-10"
+                        className="text-[32px] md:text-[48px] font-semibold text-center mb-10"
                         style={{ color: '#473F52' }}
                     >
                         5. A Marketplace Made for Your Community
@@ -392,7 +392,7 @@ function HowItWorks() {
                 <div className="container-padding">
                     {/* Section Title */}
                     <h2
-                        className="text-3xl md:text-4xl font-semibold text-center mb-10"
+                        className="text-[32px] md:text-[48px] font-semibold text-center mb-10"
                         style={{ color: '#473F52' }}
                     >
                         6. And There’s So Much More to Explore
@@ -582,9 +582,9 @@ function HowItWorks() {
                                 <div className="footer-nav">
                                     <Link to="/">Home</Link>
                                     <span className="bullet">•</span>
-                                    <Link to="/feature">About</Link>
+                                    <Link to="/about">About</Link>
                                     <span className="bullet">•</span>
-                                    <Link to="/how-it-works">Features</Link>
+                                    <Link to="/features">Features</Link>
                                     <span className="bullet">•</span>
                                     <Link to="/privacy-policy">Privacy Policy</Link>
                                     <span className="bullet">•</span>
