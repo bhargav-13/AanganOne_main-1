@@ -27,7 +27,6 @@ function Navbar({ simple, isDark }) {
                 alt="AANGANOne Logo"
                 className="h-8 md:h-12 w-auto"
               />
-              <span className={`text-xl md:text-2xl font-bold ${textColor}`}>AanganOne</span>
             </Link>
           </div>
 

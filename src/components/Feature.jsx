@@ -413,7 +413,7 @@ function Feature() {
           <div className="footer-content">
             <div className="footer-left-section">
               <div className="footer-brand">
-                <h3>AANGANONE SPACE</h3>
+                <h3>AANGANONE SPACE PRIVATE LIMITED</h3>
               </div>
               <div className="footer-socials">
                 <h4>SOCIALS</h4>
