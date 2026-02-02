@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from './SEO';
+import FadeIn from './FadeIn';
 
 function OurStory() {
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+      <SEO
+        title="Our Story - Shaping the Future of Community Living | AanganOne"
+        description="Discover the story behind AanganOne. We build smart solutions that make everyday life smoother and more connected for communities."
+        url="https://aanganone.com/our-story"
+      />
       {/* Background Decorative Circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-purple-200 rounded-full opacity-20 blur-3xl"></div>
@@ -37,7 +44,7 @@ function OurStory() {
                 to="/about"
                 className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-lg"
               >
-                Feature
+                About
               </Link>
               <Link
                 to="/our-story"
@@ -64,25 +71,27 @@ function OurStory() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-[calc(100vh-120px)] flex items-center justify-center">
-        <div className="container-padding text-center max-w-4xl mx-auto px-4">
-          {/* Main Headline */}
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
-            style={{ color: '#473F52' }}
-          >
-            Shaping the Future of<br />Community Living
-          </h1>
+      <FadeIn>
+        <section className="relative z-10 min-h-[calc(100vh-120px)] flex items-center justify-center">
+          <div className="container-padding text-center max-w-4xl mx-auto px-4">
+            {/* Main Headline */}
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
+              style={{ color: '#473F52' }}
+            >
+              Shaping the Future of<br />Community Living
+            </h1>
 
-          {/* Descriptive Text */}
-          <p
-            className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto"
-            style={{ color: '#77787C' }}
-          >
-            We build smart solutions that work quietly in the background, making everyday life simpler, smoother, and more connected for your home and community.
-          </p>
-        </div>
-      </section>
+            {/* Descriptive Text */}
+            <p
+              className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto"
+              style={{ color: '#77787C' }}
+            >
+              We build smart solutions that work quietly in the background, making everyday life simpler, smoother, and more connected for your home and community.
+            </p>
+          </div>
+        </section>
+      </FadeIn>
 
       {/* Bottom Border Line */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-400"></div>

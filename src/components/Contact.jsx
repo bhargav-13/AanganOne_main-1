@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from './SEO'
 import HeroSection from './HeroSection'
 import ContactAppSection from './ContactAppSection'
 import ContactStatsSection from './ContactStatsSection'
 import AboutSection from './AboutSection'
+import FadeIn from './FadeIn'
 
 function Contact() {
     const [expandedFAQ, setExpandedFAQ] = useState(null)
@@ -49,161 +51,172 @@ function Contact() {
 
     return (
         <div className="min-h-screen">
+            <SEO
+                title="Contact Us - Get in Touch with AanganOne"
+                description="Ready to transform your society management? Contact AanganOne for a demo, pricing inquiries, or support. We're here to help."
+                url="https://aanganone.com/contact"
+            />
             <HeroSection />
-            <ContactAppSection />
-            <ContactStatsSection />
+            <FadeIn delay={100}><ContactAppSection /></FadeIn>
+            <FadeIn delay={200}><ContactStatsSection /></FadeIn>
 
             {/* About Section */}
-            <AboutSection />
+            <FadeIn delay={300}><AboutSection /></FadeIn>
 
             {/* Reach Communities Section */}
-            <section className="reach-communities">
-                <div className="reach-communities-container">
-                    {/* Header Section */}
-                    <div className="reach-communities-header">
-                        <p className="reach-communities-label">The Aanganone App</p>
-                        <h2 className="section-title">A Smarter Way to Manage Communities</h2>
-                        <p className="reach-communities-tagline">One platform designed to simplify everyday community living</p>
-                    </div>
-
-                    {/* Main Content Block */}
-                    <div className="reach-communities-content">
-                        {/* Left Column - Text Content */}
-                        <div className="reach-communities-text">
-                            <h3 className="reach-communities-heading">Reach the Right Communities</h3>
-                            <p className="reach-communities-description">
-                                From premium residential societies to growing neighborhoods across cities, Aanganone helps businesses, service providers, and local brands connect directly with active communities.
-                            </p>
-                            <p className="reach-communities-description">
-                                Engage residents where they live, build trust, and grow visibility through a smart, community-first platform.
-                            </p>
-                            <button className="reach-communities-button">
-                                Submit <span className="arrow">→</span>
-                            </button>
+            <FadeIn>
+                <section className="reach-communities">
+                    <div className="reach-communities-container">
+                        {/* Header Section */}
+                        <div className="reach-communities-header">
+                            <p className="reach-communities-label">The Aanganone App</p>
+                            <h2 className="section-title">A Smarter Way to Manage Communities</h2>
+                            <p className="reach-communities-tagline">One platform designed to simplify everyday community living</p>
                         </div>
 
-                        {/* Right Column - Image */}
-                        <div className="reach-communities-image">
-                            <img
-                                src="/images/Frame 2118388460.png"
-                                alt="Aanganone App"
-                                className="reach-communities-img"
-                            />
+                        {/* Main Content Block */}
+                        <div className="reach-communities-content">
+                            {/* Left Column - Text Content */}
+                            <div className="reach-communities-text">
+                                <h3 className="reach-communities-heading">Reach the Right Communities</h3>
+                                <p className="reach-communities-description">
+                                    From premium residential societies to growing neighborhoods across cities, Aanganone helps businesses, service providers, and local brands connect directly with active communities.
+                                </p>
+                                <p className="reach-communities-description">
+                                    Engage residents where they live, build trust, and grow visibility through a smart, community-first platform.
+                                </p>
+                                <button className="reach-communities-button">
+                                    Submit <span className="arrow">→</span>
+                                </button>
+                            </div>
+
+                            {/* Right Column - Image */}
+                            <div className="reach-communities-image">
+                                <img
+                                    src="/images/Frame 2118388460.png"
+                                    alt="Aanganone App"
+                                    className="reach-communities-img"
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </FadeIn>
 
             {/* FAQ Section */}
-            <section className="faq">
-                <div className="container">
-                    <div className="faq-label">
-                        <div className="faq-label-icon">
-                            <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
-                        </div>
-                        <span>FAQ'S</span>
-                    </div>
-                    <h2 className="section-title">Frequently Asked Questions</h2>
-                    <p className="section-subtitle">Everything you need to know about Aanganone</p>
-
-                    <div className="faq-list">
-                        {faqs.map((faq, index) => (
-                            <div key={index} className={`faq-item ${expandedFAQ === index ? 'expanded' : ''}`}>
-                                <div
-                                    className="faq-question"
-                                    onClick={() => toggleFAQ(index)}
-                                >
-                                    <span className="faq-question-text">{faq.question}</span>
-                                    <span className="faq-toggle">
-                                        {expandedFAQ === index ? (
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                                            </svg>
-                                        ) : (
-                                            '+'
-                                        )}
-                                    </span>
-                                </div>
-                                {expandedFAQ === index && (
-                                    <div className="faq-answer">{faq.answer}</div>
-                                )}
+            <FadeIn>
+                <section className="faq">
+                    <div className="container">
+                        <div className="faq-label">
+                            <div className="faq-label-icon">
+                                <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
                             </div>
-                        ))}
+                            <span>FAQ'S</span>
+                        </div>
+                        <h2 className="section-title">Frequently Asked Questions</h2>
+                        <p className="section-subtitle">Everything you need to know about Aanganone</p>
+
+                        <div className="faq-list">
+                            {faqs.map((faq, index) => (
+                                <div key={index} className={`faq-item ${expandedFAQ === index ? 'expanded' : ''}`}>
+                                    <div
+                                        className="faq-question"
+                                        onClick={() => toggleFAQ(index)}
+                                    >
+                                        <span className="faq-question-text">{faq.question}</span>
+                                        <span className="faq-toggle">
+                                            {expandedFAQ === index ? (
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                                                </svg>
+                                            ) : (
+                                                '+'
+                                            )}
+                                        </span>
+                                    </div>
+                                    {expandedFAQ === index && (
+                                        <div className="faq-answer">{faq.answer}</div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </FadeIn>
 
             {/* Testimonials Section */}
-            <section id="about" className="testimonials">
-                <div className="container">
-                    <div className="testimonials-label">
-                        <div className="testimonials-label-icon">
-                            <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
+            <FadeIn>
+                <section id="about" className="testimonials">
+                    <div className="container">
+                        <div className="testimonials-label">
+                            <div className="testimonials-label-icon">
+                                <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
+                            </div>
+                            <span>Society Reviews</span>
                         </div>
-                        <span>Society Reviews</span>
+                        <h2 className="section-title">How Aanganone Makes a Difference</h2>
+                        <div className="testimonials-wrapper">
+                            <div className="testimonials-grid">
+                                <div className="testimonial-card">
+                                    <div className="quote-icon">"</div>
+                                    <div className="testimonial-header">
+                                        <h3 className="society-name">Shaligram</h3>
+                                        <span className="society-suffix">Society</span>
+                                    </div>
+                                    <p className="testimonial-text">
+                                        At Shaligram Society, the secretary used to handle 50+ calls weekly for maintenance and updates. After Aanganone, everything is digital residents submit complaints in-app, staff get instant assignments, and updates are tracked in real-time.
+                                    </p>
+                                    <div className="testimonial-author">
+                                        <div className="author-avatar"></div>
+                                        <div className="author-info">
+                                            <div className="author-role">Secretary</div>
+                                            <div className="author-society">Shaligram Society</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="testimonial-card">
+                                    <div className="quote-icon">"</div>
+                                    <div className="testimonial-header">
+                                        <h3 className="society-name">Indraprasth</h3>
+                                        <span className="society-suffix">Society</span>
+                                    </div>
+                                    <p className="testimonial-text">
+                                        Managing finances and vendor payments was a nightmare at Indraprasth Society. With Aanganone, all transactions are transparent, automated, and accessible. Our residents can track every rupee spent, and we've reduced accounting errors by 90%.
+                                    </p>
+                                    <div className="testimonial-author">
+                                        <div className="author-avatar"></div>
+                                        <div className="author-info">
+                                            <div className="author-role">Secretary</div>
+                                            <div className="author-society">Indraprasth Society</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="testimonial-card">
+                                    <div className="quote-icon">"</div>
+                                    <div className="testimonial-header">
+                                        <h3 className="society-name">Satyagruh</h3>
+                                        <span className="society-suffix">Society</span>
+                                    </div>
+                                    <p className="testimonial-text">
+                                        Event management used to be chaotic at Satyagruh Society. Now with Aanganone, residents can book amenities, RSVP to events, and get instant notifications. Our community engagement has increased significantly, and everything runs smoothly.
+                                    </p>
+                                    <div className="testimonial-author">
+                                        <div className="author-avatar"></div>
+                                        <div className="author-info">
+                                            <div className="author-role">Secretary</div>
+                                            <div className="author-society">Satyagruh Society</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="testimonials-nav">
+                                <button className="nav-arrow nav-prev">‹</button>
+                                <button className="nav-arrow nav-next">›</button>
+                            </div>
+                        </div>
                     </div>
-                    <h2 className="section-title">How Aanganone Makes a Difference</h2>
-                    <div className="testimonials-wrapper">
-                        <div className="testimonials-grid">
-                            <div className="testimonial-card">
-                                <div className="quote-icon">"</div>
-                                <div className="testimonial-header">
-                                    <h3 className="society-name">Shaligram</h3>
-                                    <span className="society-suffix">Society</span>
-                                </div>
-                                <p className="testimonial-text">
-                                    At Shaligram Society, the secretary used to handle 50+ calls weekly for maintenance and updates. After Aanganone, everything is digital residents submit complaints in-app, staff get instant assignments, and updates are tracked in real-time.
-                                </p>
-                                <div className="testimonial-author">
-                                    <div className="author-avatar"></div>
-                                    <div className="author-info">
-                                        <div className="author-role">Secretary</div>
-                                        <div className="author-society">Shaligram Society</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="testimonial-card">
-                                <div className="quote-icon">"</div>
-                                <div className="testimonial-header">
-                                    <h3 className="society-name">Indraprasth</h3>
-                                    <span className="society-suffix">Society</span>
-                                </div>
-                                <p className="testimonial-text">
-                                    Managing finances and vendor payments was a nightmare at Indraprasth Society. With Aanganone, all transactions are transparent, automated, and accessible. Our residents can track every rupee spent, and we've reduced accounting errors by 90%.
-                                </p>
-                                <div className="testimonial-author">
-                                    <div className="author-avatar"></div>
-                                    <div className="author-info">
-                                        <div className="author-role">Secretary</div>
-                                        <div className="author-society">Indraprasth Society</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="testimonial-card">
-                                <div className="quote-icon">"</div>
-                                <div className="testimonial-header">
-                                    <h3 className="society-name">Satyagruh</h3>
-                                    <span className="society-suffix">Society</span>
-                                </div>
-                                <p className="testimonial-text">
-                                    Event management used to be chaotic at Satyagruh Society. Now with Aanganone, residents can book amenities, RSVP to events, and get instant notifications. Our community engagement has increased significantly, and everything runs smoothly.
-                                </p>
-                                <div className="testimonial-author">
-                                    <div className="author-avatar"></div>
-                                    <div className="author-info">
-                                        <div className="author-role">Secretary</div>
-                                        <div className="author-society">Satyagruh Society</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="testimonials-nav">
-                            <button className="nav-arrow nav-prev">‹</button>
-                            <button className="nav-arrow nav-next">›</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </FadeIn>
 
             {/* Footer */}
             <footer className="footer">

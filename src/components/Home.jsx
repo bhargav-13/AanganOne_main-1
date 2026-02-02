@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from './SEO'
+import FadeIn from './FadeIn'
 import Hero from './Hero'
 import WhyChoose from './WhyChoose'
 
@@ -94,10 +95,10 @@ function Home() {
         url="https://aanganone.com/"
       />
       <Hero />
-      <WhyChoose />
-      <AboutSection />
-      <FeaturesSection />
-      <ImpactSection />
+      <FadeIn delay={100}><WhyChoose /></FadeIn>
+      <FadeIn delay={200}><AboutSection /></FadeIn>
+      <FadeIn delay={100}><FeaturesSection /></FadeIn>
+      <FadeIn delay={100}><ImpactSection /></FadeIn>
 
 
 
