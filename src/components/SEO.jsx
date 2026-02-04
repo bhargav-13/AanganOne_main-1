@@ -1,43 +1,58 @@
 import { Helmet } from 'react-helmet-async';
 
 function SEO({
-    title = "AanganOne - Smart Community Management Platform",
-    description = "AanganOne is a comprehensive community management platform designed for RWAs and residential societies. Streamline communication, maintenance, security, accounting, and daily operations.",
-    keywords = "community management, society management, RWA software, residential society app",
+    title = "AanganOne | #1 Smart Society Management Platform",
+    description = "AanganOne is the leading society management software for residential communities. Streamline billing, security, and RWA operations with AanganOne app.",
+    keywords = "AanganOne, AanganOne app, AanganOne login, AanganOne society, community management, society management, RWA software",
     ogImage = "https://aanganone.com/og-image.jpg",
     url = "https://aanganone.com/"
 }) {
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "AanganOne",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web, iOS, Android",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "INR"
+    const structuredData = [
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "AanganOne",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "ratingCount": "1250"
+            },
+            "description": description,
+            "url": url,
+            "image": ogImage,
+            "provider": {
+                "@type": "Organization",
+                "name": "AanganOne",
+                "url": "https://aanganone.com"
+            }
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "500"
-        },
-        "description": description,
-        "url": url,
-        "image": ogImage,
-        "provider": {
+        {
+            "@context": "https://schema.org",
             "@type": "Organization",
             "name": "AanganOne",
             "url": "https://aanganone.com",
             "logo": "https://aanganone.com/logo.png",
             "contactPoint": {
                 "@type": "ContactPoint",
-                "contactType": "Customer Support",
-                "email": "support@aanganone.com"
-            }
+                "contactType": "customer support",
+                "email": "support@aanganone.com",
+                "url": "https://aanganone.com/contact"
+            },
+            "sameAs": [
+                "https://www.facebook.com/aanganone",
+                "https://twitter.com/aanganone",
+                "https://www.linkedin.com/company/aanganone",
+                "https://www.instagram.com/aanganone"
+            ]
         }
-    };
+    ];
 
     return (
         <Helmet>

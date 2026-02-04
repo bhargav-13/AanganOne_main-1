@@ -18,9 +18,9 @@ function Hero() {
                     </div>
                     <span className="badge-text">Smart Society Management</span>
                 </div>
-                <h1 className="hero-title">Your Society, Simplified.</h1>
+                <h1 className="hero-title">AanganOne: Your Society, Simplified.</h1>
                 <p className="hero-description">
-                    Aanganone is your all-in-one society management platform that connects residents, staff, and management seamlessly. From complaints to communication everything happens digitally and transparently.
+                    AanganOne is your all-in-one society management platform that connects residents, staff, and management seamlessly. From complaints to communication everything happens digitally and transparently.
                 </p>
                 <div className="hero-buttons">
                     <Link to="/contact" className="btn-primary">
