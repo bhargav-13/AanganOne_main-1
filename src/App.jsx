@@ -7,6 +7,7 @@ import HowItWorks from './components/HowItWorks'
 import Contact from './components/Contact'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import ScrollToTop from './components/ScrollToTop'
+import Chatbot from './components/Chatbot'
 import './App.css'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <HelmetProvider>
             <Router>
                 <ScrollToTop />
+                <Chatbot />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<Feature />} />
