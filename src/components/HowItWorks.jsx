@@ -73,14 +73,14 @@ function HowItWorks() {
                                 <div className="how-it-works-phones">
                                     <div className="how-it-works-phone">
                                         <img
-                                            src="/images/iPhone 14 Pro Max.png"
+                                            src="/images/iPhone 14 Pro Max1.png"
                                             alt="Aanganone App Screen 1"
                                             className="how-it-works-phone-img"
                                         />
                                     </div>
                                     <div className="how-it-works-phone">
                                         <img
-                                            src="/images/iPhone 14 Pro Max_2.png"
+                                            src="/images/iPhone 14 Pro Max2.png"
                                             alt="Aanganone App Screen 2"
                                             className="how-it-works-phone-img"
                                         />
@@ -93,14 +93,14 @@ function HowItWorks() {
                                 <div className="how-it-works-phones">
                                     <div className="how-it-works-phone">
                                         <img
-                                            src="/images/iPhone 14 Pro Max.png"
+                                            src="/images/iPhone 14 Pro Max3.png"
                                             alt="Aanganone App Screen 3"
                                             className="how-it-works-phone-img"
                                         />
                                     </div>
                                     <div className="how-it-works-phone">
                                         <img
-                                            src="/images/iPhone 14 Pro Max_2.png"
+                                            src="/images/iPhone 14 Pro Max4.png"
                                             alt="Aanganone App Screen 4"
                                             className="how-it-works-phone-img"
                                         />

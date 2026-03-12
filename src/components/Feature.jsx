@@ -151,51 +151,51 @@ function Feature() {
 
               {/* Card 2: Yellow */}
               <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FFCC4D4D' }}>
-                <span className="text-[#FBBF24] font-medium text-base md:text-xl relative z-10">Management</span>
+                <span className="text-[#FBBF24] font-medium text-base md:text-xl relative z-10">Maintenance</span>
                 <div className="absolute right-4 md:right-6 lg:right-2 xl:right-6 top-6 bottom-6 w-38 bg-[#FBBF24] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                   <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                   <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
+                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">5 Ways to Simplify<br />Society Maintenance<br />Tracking</p>
                 </div>
               </div>
 
               {/* Card 3: Green */}
               <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#BDFFD9' }}>
-                <span className="text-[#34D399] font-medium text-base md:text-xl relative z-10">Management</span>
+                <span className="text-[#34D399] font-medium text-base md:text-xl relative z-10">Community</span>
                 <div className="absolute right-4 md:right-6 lg:right-2 xl:right-6 top-6 bottom-6 w-38 bg-[#34D399] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                   <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                   <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
+                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Building Stronger<br />Communities Through<br />Better Communication</p>
                 </div>
               </div>
 
               {/* Card 4: Pink */}
               <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FF4DCD4D' }}>
-                <span className="text-[#F472B6] font-medium text-base md:text-xl relative z-10">Management</span>
+                <span className="text-[#F472B6] font-medium text-base md:text-xl relative z-10">Security</span>
                 <div className="absolute right-4 md:right-6 lg:right-2 xl:right-6 top-6 bottom-6 w-38 bg-[#F472B6] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                   <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                   <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
+                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Why Smart Security<br />Systems Are Essential<br />for Modern Societies</p>
                 </div>
               </div>
 
               {/* Card 5: Purple */}
               <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#8739FD33' }}>
-                <span className="text-[#8B5CF6] font-medium text-base md:text-xl relative z-10">Management</span>
+                <span className="text-[#8B5CF6] font-medium text-base md:text-xl relative z-10">Technology</span>
                 <div className="absolute right-4 md:right-6 lg:right-2 xl:right-6 top-6 bottom-6 w-38 bg-[#8B5CF6] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                   <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                   <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
+                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">How Technology Is<br />Transforming Society<br />Management</p>
                 </div>
               </div>
 
               {/* Card 6: Red/Coral */}
               <div className="rounded-3xl p-6 md:p-8 relative h-72 overflow-hidden group" style={{ backgroundColor: '#FF4D4D4D' }}>
-                <span className="text-[#FF4D4D] font-medium text-base md:text-xl relative z-10">Management</span>
+                <span className="text-[#FF4D4D] font-medium text-base md:text-xl relative z-10">Administration</span>
                 <div className="absolute right-4 md:right-6 lg:right-2 xl:right-6 top-6 bottom-6 w-38 bg-[#FF4D4D] rounded-r-lg rounded-l-sm shadow-xl flex flex-col justify-end p-4 transition-transform group-hover:-translate-y-2 duration-300">
                   <div className="absolute left-3 top-0 bottom-0 w-[1px] bg-black/10"></div>
                   <div className="absolute top-0 right-6 w-6 h-8 bg-white/20" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%)' }}></div>
-                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Smarter Community<br />Management Starts<br />Here</p>
+                  <p className="text-white text-[10px] md:text-xs font-medium leading-tight px-1 md:px-2">Tips for Efficient<br />Society Administration</p>
                 </div>
               </div>
             </div>

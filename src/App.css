@@ -3315,7 +3315,7 @@ body {
 .how-it-works-card {
   background: #ffffff;
   border-radius: 32px;
-  padding: 40px;
+  padding: 40px 40px 5px 40px;
   border: 1px solid #E5E5F0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -3331,7 +3331,7 @@ body {
 
 .how-it-works-phone {
   width: 100%;
-  max-width: 200px;
+  max-width: 225px;
 }
 
 .how-it-works-phone-img {
