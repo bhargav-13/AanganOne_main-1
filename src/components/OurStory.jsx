@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import FadeIn from './FadeIn';
+import Footer from './Footer';
 
 function OurStory() {
   return (
@@ -94,7 +95,7 @@ function OurStory() {
       </FadeIn>
 
       {/* Bottom Border Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-400"></div>
+      <Footer />
     </div>
   );
 }

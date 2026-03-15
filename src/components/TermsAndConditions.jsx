@@ -1,6 +1,7 @@
 import Navbar from './Navbar';
 import FadeIn from './FadeIn';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 import './TermsAndConditions.css';
 import SEO from './SEO';
 
@@ -482,51 +483,7 @@ function TermsAndConditions() {
             </div>
 
             {/* Footer */}
-            <footer className="footer">
-                <div className="container">
-                    <div className="footer-content">
-                        <div className="footer-left-section">
-                            <div className="footer-brand">
-                                <h3>AANGANONE SPACE PRIVATE LIMITED</h3>
-                            </div>
-                            <div className="footer-socials">
-                                <h4>SOCIALS</h4>
-                                <div className="social-links">
-                                    <a href="https://www.linkedin.com/company/aanganone" target="_blank" rel="noopener noreferrer">Linkedin</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="footer-divider-vertical"></div>
-                        <div className="footer-right-section">
-                            <div className="footer-about">
-                                <h4>ABOUT</h4>
-                                <p>Aanganone: Outsmarting Traditional Society Management. Securing Tomorrow At Aanganone, We Don't Just Defend We Outsmart</p>
-                            </div>
-                            <div className="footer-navigation">
-                                <h4>NAVIGATION</h4>
-                                <div className="footer-nav">
-                                    <Link to="/">Home</Link>
-                                    <span className="bullet">•</span>
-                                    <Link to="/about">About</Link>
-                                    <span className="bullet">•</span>
-                                    <Link to="/features">Features</Link>
-                                    <span className="bullet">•</span>
-                                    <Link to="/privacy-policy">Privacy Policy</Link>
-                                    <span className="bullet">•</span>
-                                    <Link to="/terms-and-conditions">Terms & Conditions</Link>
-                                    <span className="bullet">•</span>
-                                    <Link to="/contact">Contact</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="footer-divider-horizontal"></div>
-                    <div className="footer-bottom">
-                        <p>Copyright 2026 - Aanganone space All rights reserved</p>
-                        <p>Powered by <a href="https://www.codelixitsolutions.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#473F52', textDecoration: 'none' }}>Codelix IT Solutions Pvt. Ltd.</a></p>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }
