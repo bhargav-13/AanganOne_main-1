@@ -302,7 +302,7 @@ function Feature() {
             </div>
 
             {/* Founders Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 max-w-6xl mx-auto">
               {/* Founder 1 */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-full aspect-square bg-[#D9D9D9] rounded-2xl mb-6 overflow-hidden">
