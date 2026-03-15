@@ -60,7 +60,7 @@ const Footer = () => {
                 <div className="footer-bottom-divider"></div>
 
                 <div className="footer-bottom-content">
-                    <p>Copyright 2025 - Aanganone space All rights reserved</p>
+                    <p>Copyright 2026 - Aanganone space All rights reserved</p>
                     <div className="footer-legal-links">
                         <Link to="/privacy-policy">Privacy Policy</Link>
                         <span className="divider">|</span>

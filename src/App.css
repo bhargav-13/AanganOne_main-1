@@ -1,4 +1,4 @@
-﻿/* App.css - Final Restoration */
+/* App.css - Final Restoration */
 
 @tailwind base;
 @tailwind components;
@@ -23,8 +23,10 @@ body {
 
 /* Global Styles */
 .container-padding {
-  padding-left: clamp(20px, 10vw, 160px);
-  padding-right: clamp(20px, 10vw, 160px);
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .section-padding {
@@ -620,7 +622,7 @@ body {
 .testimonials .container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
   position: relative;
 }
 
@@ -850,8 +852,9 @@ body {
 }
 
 .footer .container {
-  padding-left: clamp(20px, 10vw, 160px);
-  padding-right: clamp(20px, 10vw, 160px);
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .footer-content {
@@ -1626,7 +1629,7 @@ body {
 .why-choose .container {
   max-width: 1300px !important;
   margin: 0 auto !important;
-  padding: 0 20px !important;
+  padding: 0 40px !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -2333,8 +2336,9 @@ body {
 }
 
 .features-container {
-  padding: 0px 142px;
+  max-width: 1300px;
   margin: 0 auto;
+  padding: 0px 40px;
 }
 
 .features-label {
@@ -3299,7 +3303,7 @@ body {
 }
 
 .how-it-works-content-container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 40px;
 }

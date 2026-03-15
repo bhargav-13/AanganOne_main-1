@@ -315,7 +315,12 @@ function Feature() {
               {/* Founder 2 */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-full aspect-square bg-[#D9D9D9] rounded-2xl mb-6 overflow-hidden">
-                  {/* Placeholder for Mr. Durgesh Chavda image */}
+                  <img
+                    src="/images/durgesh_profile_image.jpeg"
+                    alt="Mr. Durgesh Chavda"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center 30%' }}
+                  />
                 </div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2" style={{ color: '#473F52' }}>Mr. Durgesh Chavda</h3>
                 <p className="text-gray-500 font-medium text-sm md:text-base">Founder & CEO</p>
@@ -324,7 +329,11 @@ function Feature() {
               {/* Founder 3 */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-full aspect-square bg-[#D9D9D9] rounded-2xl mb-6 overflow-hidden">
-                  {/* Placeholder for Mr. Manas Vadodaria image */}
+                  <img
+                    src="/images/manas_profile_image.png"
+                    alt="Mr. Manas Vadodaria"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2" style={{ color: '#473F52' }}>Mr. Manas Vadodaria</h3>
                 <p className="text-gray-500 font-medium text-sm md:text-base">CTO & Technical Head</p>
