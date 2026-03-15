@@ -319,7 +319,7 @@ function Feature() {
                     src="/images/durgesh_profile_image.jpeg"
                     alt="Mr. Durgesh Chavda"
                     className="w-full h-full object-cover"
-                    style={{ objectPosition: 'center 30%' }}
+                    style={{ objectPosition: 'center 20%' }}
                   />
                 </div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2" style={{ color: '#473F52' }}>Mr. Durgesh Chavda</h3>
@@ -333,6 +333,7 @@ function Feature() {
                     src="/images/manas_profile_image.png"
                     alt="Mr. Manas Vadodaria"
                     className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center 30%' }}
                   />
                 </div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2" style={{ color: '#473F52' }}>Mr. Manas Vadodaria</h3>
