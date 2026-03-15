@@ -439,6 +439,8 @@ function Feature() {
                   <span className="bullet">•</span>
                   <Link to="/privacy-policy">Privacy Policy</Link>
                   <span className="bullet">•</span>
+                  <Link to="/terms-and-conditions">Terms & Conditions</Link>
+                  <span className="bullet">•</span>
                   <Link to="/contact">Contact</Link>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import OurStory from './components/OurStory'
 import HowItWorks from './components/HowItWorks'
 import Contact from './components/Contact'
 import PrivacyPolicy from './components/PrivacyPolicy'
+import TermsAndConditions from './components/TermsAndConditions'
 import ScrollToTop from './components/ScrollToTop'
 import Chatbot from './components/Chatbot'
 import './App.css'
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/features" element={<HowItWorks />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                 </Routes>
             </Router>
         </HelmetProvider>

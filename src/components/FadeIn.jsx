@@ -12,7 +12,7 @@ function FadeIn({ children, delay = 0, className = "" }) {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 }); // Trigger when 10% of element is visible
+        }, { threshold: 0 }); // Trigger as soon as any part of the element is visible
 
         const currentRef = domRef.current;
         if (currentRef) {
