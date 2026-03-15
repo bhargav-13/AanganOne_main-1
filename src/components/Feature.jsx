@@ -306,7 +306,12 @@ function Feature() {
               {/* Founder 1 */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-full aspect-square bg-[#D9D9D9] rounded-2xl mb-6 overflow-hidden">
-                  {/* Placeholder for Mr. Vivek Changani image */}
+                  <img
+                    src="/images/vivek_profile_image.jpg"
+                    alt="Mr. Vivek Changani"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center 30%' }}
+                  />
                 </div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2" style={{ color: '#473F52' }}>Mr. Vivek Changani</h3>
                 <p className="text-gray-500 font-medium text-sm md:text-base">Co-Founder & CFO</p>
