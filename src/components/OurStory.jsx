@@ -22,7 +22,7 @@ function OurStory() {
 
       {/* Header with Logo and Navigation */}
       <header className="relative z-10">
-        <div className="container-padding pt-12 pb-6">
+        <div className="container-padding pt-6 pb-4">
           <div className="flex items-center justify-between">
             {/* Logo Section */}
             <div className="flex items-center gap-3">

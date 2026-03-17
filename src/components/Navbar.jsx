@@ -17,7 +17,7 @@ function Navbar({ simple, isDark }) {
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50">
-      <div className="container-padding pt-12 pb-6">
+      <div className="container-padding pt-6 pb-4">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center gap-3">
