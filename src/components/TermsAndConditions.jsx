@@ -6,13 +6,33 @@ import './TermsAndConditions.css';
 import SEO from './SEO';
 
 function TermsAndConditions() {
-    return (
-        <div className="privacy-policy-page">
-            <SEO
-                title="Terms and Conditions - AanganOne"
-                description="Read the Terms and Conditions for using the AanganOne platform. Understand your rights and responsibilities as a user."
-                url="https://aanganone.com/terms-and-conditions"
-            />
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aanganone.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Terms and Conditions",
+        "item": "https://aanganone.com/terms-and-conditions"
+      }
+    ]
+  }
+
+  return (
+    <div className="privacy-policy-page">
+      <SEO
+        title="Terms and Conditions - AanganOne"
+        description="Read the Terms and Conditions for using the AanganOne platform. Understand your rights and responsibilities as a user."
+        url="https://aanganone.com/terms-and-conditions"
+        schema={[breadcrumbSchema]}
+      />
             <Navbar simple={true} />
 
             <div className="privacy-policy-content-wrapper">

@@ -5,12 +5,32 @@ import { Link } from 'react-router-dom';
 import Footer from './Footer';
 
 function Feature() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aanganone.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://aanganone.com/about"
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen bg-[#F7F7F7] relative overflow-hidden">
       <SEO
         title="About AanganOne - Shaping the Future of Community Living"
         description="Learn about AanganOne's mission to simplify community living through smart technology. Discover our vision, values, and the team behind the platform."
         url="https://aanganone.com/about"
+        schema={[breadcrumbSchema]}
       />
 
 

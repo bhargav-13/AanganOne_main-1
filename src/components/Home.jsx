@@ -87,13 +87,40 @@ function Home() {
     }
   ]
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aanganone.com/"
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen">
       <SEO
         title="AanganOne - Smart Community Management Platform for Residential Societies"
         description="Transform your residential society with AanganOne's all-in-one management platform. Streamline communication, maintenance, security, and accounting with ease."
-        keywords="community management, society management, RWA software, residential society app, apartment management"
+        keywords="community management, society management, RWA software, residential society app, apartment management, maintenance billing software, visitor management system"
         url="https://aanganone.com/"
+        schema={[faqSchema, breadcrumbSchema]}
       />
       <Hero />
       <FadeIn delay={100}><WhyChoose /></FadeIn>

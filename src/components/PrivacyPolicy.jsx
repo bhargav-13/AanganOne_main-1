@@ -6,13 +6,33 @@ import './PrivacyPolicy.css';
 import SEO from './SEO';
 
 function PrivacyPolicy() {
-    return (
-        <div className="privacy-policy-page">
-            <SEO
-                title="Privacy Policy - Your Home, Your Data | AanganOne"
-                description="Read AanganOne's Privacy Policy to understand how we collect, use, and protect your data. We are committed to data privacy and security."
-                url="https://aanganone.com/privacy-policy"
-            />
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aanganone.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy Policy",
+        "item": "https://aanganone.com/privacy-policy"
+      }
+    ]
+  }
+
+  return (
+    <div className="privacy-policy-page">
+      <SEO
+        title="Privacy Policy - Your Home, Your Data | AanganOne"
+        description="Read AanganOne's Privacy Policy to understand how we collect, use, and protect your data. We are committed to data privacy and security."
+        url="https://aanganone.com/privacy-policy"
+        schema={[breadcrumbSchema]}
+      />
             <Navbar simple={true} />
 
             {/* Privacy Policy Content */}

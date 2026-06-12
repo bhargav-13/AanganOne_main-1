@@ -50,13 +50,46 @@ function Contact() {
         }
     ]
 
-    return (
-        <div className="min-h-screen">
-            <SEO
-                title="Contact Us - Get in Touch with AanganOne"
-                description="Ready to transform your society management? Contact AanganOne for a demo, pricing inquiries, or support. We're here to help."
-                url="https://aanganone.com/contact"
-            />
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aanganone.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://aanganone.com/contact"
+      }
+    ]
+  }
+
+  return (
+    <div className="min-h-screen">
+      <SEO
+        title="Contact Us - Get in Touch with AanganOne"
+        description="Ready to transform your society management? Contact AanganOne for a demo, pricing inquiries, or support. We're here to help."
+        url="https://aanganone.com/contact"
+        schema={[faqSchema, breadcrumbSchema]}
+      />
             <HeroSection />
             <FadeIn delay={100}><ContactAppSection /></FadeIn>
             <FadeIn delay={200}><ContactStatsSection /></FadeIn>

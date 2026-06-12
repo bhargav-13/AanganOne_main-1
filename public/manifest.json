@@ -1,0 +1,21 @@
+{
+  "name": "AanganOne - Smart Society Management",
+  "short_name": "AanganOne",
+  "description": "AanganOne is the leading society management software for residential communities. Streamline billing, security, and RWA operations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8739FD",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/Aanganone-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en-IN",
+  "dir": "ltr"
+}

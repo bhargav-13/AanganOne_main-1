@@ -5,12 +5,32 @@ import FadeIn from './FadeIn';
 import Footer from './Footer';
 
 function OurStory() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aanganone.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Our Story",
+        "item": "https://aanganone.com/our-story"
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden">
       <SEO
         title="Our Story - Shaping the Future of Community Living | AanganOne"
         description="Discover the story behind AanganOne. We build smart solutions that make everyday life smoother and more connected for communities."
         url="https://aanganone.com/our-story"
+        schema={[breadcrumbSchema]}
       />
       {/* Background Decorative Circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
