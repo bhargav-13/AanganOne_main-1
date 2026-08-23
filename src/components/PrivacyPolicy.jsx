@@ -1,8 +1,4 @@
-import Navbar from './Navbar';
-import FadeIn from './FadeIn';
-import { Link } from 'react-router-dom';
-import Footer from './Footer';
-import './PrivacyPolicy.css';
+import LegalPage from './LegalPage';
 import SEO from './SEO';
 
 function PrivacyPolicy() {
@@ -26,29 +22,19 @@ function PrivacyPolicy() {
   }
 
   return (
-    <div className="privacy-policy-page">
+    <LegalPage
+      label={"Privacy Policy"}
+      title={"Your home, your data."}
+      intro={"The privacy of your home extends to the digital tools you use to manage it. This policy explains what we collect, why, and how it is protected — as a Data Fiduciary under India's Digital Personal Data Protection Act, 2023."}
+      updated={"August 2026"}
+    >
       <SEO
         title="Privacy Policy - Your Home, Your Data | AanganOne"
         description="Read AanganOne's Privacy Policy to understand how we collect, use, and protect your data. We are committed to data privacy and security."
         url="https://aanganone.com/privacy-policy"
         schema={[breadcrumbSchema]}
       />
-            <Navbar simple={true} />
 
-            {/* Privacy Policy Content */}
-            <FadeIn>
-                <section className="privacy-policy">
-                    <div className="container">
-                        <div className="privacy-label">
-                            <div className="privacy-label-icon">
-                                <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
-                            </div>
-                            <span>Privacy Policy</span>
-                        </div>
-                        <h1 className="section-title">Your Home, Your Data</h1>
-                        <p className="section-subtitle">At Aanganone, we believe that the privacy of your home extends to the digital tools you use to manage it. This Privacy Policy explains how we collect, use, and protect your information. We view ourselves not just as a software provider, but as a Data Fiduciary — a trusted custodian of your digital information, in accordance with India's Digital Personal Data Protection Act, 2023 (DPDP Act).</p>
-
-                        <div className="privacy-content">
                             <div className="privacy-intro">
                                 <div className="intro-badge">
                                     <span className="intro-badge-icon">🛡️</span>
@@ -206,15 +192,8 @@ function PrivacyPolicy() {
                                 <h2>8. Policy Updates</h2>
                                 <p>This Privacy Policy may be updated from time to time to reflect changes in law or platform features. Significant updates will be communicated through the app or official channels.</p>
                             </div>
-                        </div>
-                    </div>
-                </section>
-            </FadeIn>
-
-            {/* Footer */}
-            <Footer />
-        </div>
-    );
+    </LegalPage>
+  );
 }
 
 export default PrivacyPolicy;

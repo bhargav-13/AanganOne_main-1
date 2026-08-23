@@ -1,8 +1,4 @@
-import Navbar from './Navbar';
-import FadeIn from './FadeIn';
-import { Link } from 'react-router-dom';
-import Footer from './Footer';
-import './TermsAndConditions.css';
+import LegalPage from './LegalPage';
 import SEO from './SEO';
 
 function TermsAndConditions() {
@@ -26,28 +22,19 @@ function TermsAndConditions() {
   }
 
   return (
-    <div className="privacy-policy-page">
+    <LegalPage
+      label={"Terms & Conditions"}
+      title={"The terms we work under."}
+      intro={"These terms govern how societies, residents, committee members and staff use AanganOne. They set out what we provide, what we ask of you, and where responsibility sits on each side."}
+      updated={"August 2026"}
+    >
       <SEO
         title="Terms and Conditions - AanganOne"
         description="Read the Terms and Conditions for using the AanganOne platform. Understand your rights and responsibilities as a user."
         url="https://aanganone.com/terms-and-conditions"
         schema={[breadcrumbSchema]}
       />
-            <Navbar simple={true} />
 
-            <div className="privacy-policy-content-wrapper">
-                <section className="privacy-policy">
-                    <div className="container">
-                        <div className="privacy-label">
-                            <div className="privacy-label-icon">
-                                <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
-                            </div>
-                            <span>Terms & Conditions</span>
-                        </div>
-                        <h1 className="section-title">Terms and Conditions</h1>
-                        <p className="section-subtitle">These Terms and Conditions (“Terms”) govern your access to and use of the AanganOne website (<a href="https://www.aanganone.com/" target="_blank" rel="noopener noreferrer">https://www.aanganone.com/</a>), mobile application, software, and related services (collectively, the “Platform”).</p>
-
-                        <div className="privacy-content">
                             <div className="privacy-section">
                                 <p>By accessing, registering on, or using AanganOne, you agree to be bound by these Terms and our Privacy Policy. If you do not agree, you must not access or use the Platform. This structure is consistent with standard platform terms used by comparable property/community platforms.</p>
                                 <p>For these Terms, “AanganOne”, “Company”, “we”, “our”, or “us” means <strong>AanganOne Space Private Limited</strong>, a company incorporated under applicable law, having its registered office at <strong>Rajkot, Gujarat, India</strong>.</p>
@@ -497,15 +484,8 @@ function TermsAndConditions() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            {/* Footer */}
-            <Footer />
-        </div>
-    );
+    </LegalPage>
+  );
 }
 
 export default TermsAndConditions;

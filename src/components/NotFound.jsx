@@ -1,44 +1,69 @@
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import SEO from './SEO';
+import { Link } from 'react-router-dom'
+import Navbar from './Navbar'
+import Footer from './Footer'
+import SEO from './SEO'
+import Icon from './Icon'
 
-import { Helmet } from 'react-helmet-async';
+const SUGGESTIONS = [
+  { to: '/features', label: 'Explore the features', n: '01' },
+  { to: '/about', label: 'About AanganOne', n: '02' },
+  { to: '/our-story', label: 'Our story', n: '03' },
+  { to: '/contact', label: 'Book a demo', n: '04' },
+]
 
 function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <SEO
-        title="404 - Page Not Found | AanganOne"
-        description="The page you are looking for does not exist."
-        url="https://aanganone.com/404"
-      />
-      {/* Inform search engines NOT to index this page */}
-      <Helmet>
-        <meta name="robots" content="noindex" />
-      </Helmet>
-      
-      <Navbar simple={true} />
-      
-      <main className="flex-grow flex items-center justify-center py-20 px-4">
-        <div className="text-center max-w-lg">
-          <h1 className="text-9xl font-bold text-[#E5F1E5] mb-4">404</h1>
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6">Page Not Found</h2>
-          <p className="text-gray-600 mb-8 text-lg">
-            Oops! The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+    <div className="flex min-h-screen flex-col bg-paper">
+      <SEO title="Page Not Found | AanganOne" description="The page you are looking for does not exist." />
+      <Navbar />
+
+      <main id="main" className="relative flex flex-1 items-center overflow-hidden pt-[calc(var(--nav-h)+24px)] sm:pt-[calc(var(--nav-h)+48px)]">
+        <div className="jaali pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000,transparent)]" />
+
+        <div className="shell relative py-20">
+          <p className="index-label">Error 404</p>
+
+          <h1 className="display-xl mt-7 max-w-[14ch]">
+            This door doesn't <span className="serif-italic text-terracotta-500">open</span>.
+          </h1>
+
+          <p className="lede mt-8 max-w-[48ch]">
+            The page you're looking for has moved, or it never existed. Here's the way back into the
+            courtyard.
           </p>
-          <Link
-            to="/"
-            className="inline-block bg-[#00A150] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#008f47] transition-colors duration-300 shadow-md"
-          >
-            Go Back Home
-          </Link>
+
+          <div className="mt-10">
+            <Link to="/" className="btn-ink">
+              Back to home
+              <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="mt-16 max-w-2xl">
+            <div className="rule-strong" />
+            {SUGGESTIONS.map((s) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                className="group flex items-center justify-between border-b border-[color:var(--rule-soft)] py-5 transition-all duration-400 ease-smooth hover:pl-2"
+              >
+                <span className="flex items-baseline gap-4">
+                  <span className="font-mono text-[11px] text-ink-300">{s.n}</span>
+                  <span className="font-display text-[20px] font-medium text-ink-900">{s.label}</span>
+                </span>
+                <Icon
+                  name="arrow"
+                  className="h-4 w-4 text-ink-300 transition-all duration-400 ease-smooth group-hover:translate-x-1 group-hover:text-indigo-600"
+                />
+              </Link>
+            ))}
+          </div>
         </div>
       </main>
 
       <Footer />
     </div>
-  );
+  )
 }
 
-export default NotFound;
+export default NotFound

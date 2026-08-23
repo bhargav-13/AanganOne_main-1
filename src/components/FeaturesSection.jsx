@@ -1,99 +1,76 @@
-import React from 'react';
+import Icon from './Icon'
+import Reveal from './Reveal'
+import SectionHeading from './SectionHeading'
+import { FEATURE_GROUPS } from '../data/site'
 
-function FeaturesSection() {
+const TONE = {
+  brand: { dot: 'bg-indigo-600', text: 'text-indigo-600', wash: 'bg-indigo-50' },
+  mint: { dot: 'bg-terracotta-500', text: 'text-terracotta-600', wash: 'bg-terracotta-100' },
+  sky: { dot: 'bg-ink-900', text: 'text-ink-800', wash: 'bg-sand-100' },
+  sun: { dot: 'bg-sand-400', text: 'text-ink-700', wash: 'bg-sand-200' },
+}
+
+function FeaturesSection({ n = "02" }) {
   return (
-    <section id="features" className="features-section">
-      <div className="features-container">
-        <div className="features-label">
-          <div className="label-icon">⚙️</div>
-          <span>Core Features</span>
-        </div>
-        <h2 className="features-title">Everything Your Society Needs — All in One App</h2>
-        <div className="features-wrapper">
-          <div className="features-grid">
-            {/* Column 1 - Left */}
-            <article className="feature-card feature-complaint">
-              <div className="feature-icon feature-icon-yellow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="9" cy="9" r="3" fill="#fbbf24" />
-                  <circle cx="15" cy="9" r="3" fill="#fbbf24" />
-                  <circle cx="12" cy="12" r="1.5" fill="#fbbf24" />
-                  <circle cx="15" cy="7" r="1" fill="#fbbf24" />
-                </svg>
-              </div>
-              <h3 className="feature-title">Complaint Box</h3>
-              <p className="feature-desc">Residents raise issues instantly, and the secretary assigns them to staff. Track the full resolution journey from start to finish.</p>
-            </article>
-            <article className="feature-card feature-announcements">
-              <div className="feature-icon feature-icon-purple">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L4 6V12C4 16.97 7.16 21.5 12 22C16.84 21.5 20 16.97 20 12V6L12 2Z" fill="white" />
-                  <path d="M8 10L12 14L16 10" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="12" cy="8" r="1" fill="#a855f7" />
-                  <path d="M9 15L11 17L15 13" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </div>
-              <h3 className="feature-title">Announcements</h3>
-              <p className="feature-desc">Broadcast important updates like water cut-offs, meetings, or festival info in seconds.</p>
-            </article>
-            {/* Column 2 - Middle */}
-            <article className="feature-card feature-visitor">
-              <div className="feature-icon feature-icon-pink">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L4 7V10C4 15.55 7.16 20.74 12 22C16.84 20.74 20 15.55 20 10V7L12 2Z" fill="white" />
-                  <path d="M9 12L11 14L15 10" stroke="#fb5da5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className="feature-title">Visitor & Pre-Approval</h3>
-              <p className="feature-desc">Approve guests or deliveries before they arrive — smooth security flow.</p>
-            </article>
-            <article className="feature-card feature-finance">
-              <div className="feature-icon feature-icon-green">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="4" width="20" height="16" rx="2" fill="white" />
-                  <path d="M2 8H22" stroke="#22c55e" strokeWidth="2" />
-                  <circle cx="7" cy="12" r="1.5" fill="#22c55e" />
-                  <path d="M12 10L14 12L18 8" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className="feature-title">Finance Management</h3>
-              <p className="feature-desc">Keep full control of funds and expenses manually — transparent and easy.</p>
-            </article>
-            {/* Column 3 - Right */}
-            <article className="feature-card feature-events">
-              <div className="feature-icon feature-icon-blue">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="3" y="4" width="18" height="18" rx="2" fill="white" />
-                  <path d="M16 2V6M8 2V6M3 10H21M9 14H15" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M12 14L12 18" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="17" cy="6" r="1.5" fill="#3b82f6" />
-                </svg>
-              </div>
-              <h3 className="feature-title">Events & Celebrations</h3>
-              <p className="feature-desc">Plan and manage upcoming events with RSVP and reminders for everyone.</p>
-            </article>
-            <article className="feature-card feature-amenities">
-              <div className="feature-icon feature-icon-pink-alt">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="3" y="3" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="12" y="3" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="21" y="3" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="3" y="12" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="12" y="12" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="21" y="12" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="3" y="21" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="12" y="21" width="6" height="6" rx="1" fill="#fb5da5" />
-                  <rect x="21" y="21" width="6" height="6" rx="1" fill="#fb5da5" />
-                </svg>
-              </div>
-              <h3 className="feature-title">Amenities Booking</h3>
-              <p className="feature-desc">Reserve clubhouse, garden, or gym slots without paperwork or phone calls.</p>
-            </article>
-          </div>
+    <section id="features" className="band bg-sand-50">
+      <div className="shell">
+        <SectionHeading
+          n={n}
+          label="What's inside"
+          title={<>Thirteen tools, four jobs, one login.</>}
+          lede="Security at the gate, money in the ledger, word to the residents, and the daily running of the place. Nothing bolted on."
+        />
+
+        <div className="mt-10 space-y-10 sm:mt-16 sm:space-y-14">
+          {FEATURE_GROUPS.map((group, gi) => {
+            const tone = TONE[group.accent]
+            return (
+              <Reveal key={group.id} delay={gi * 70}>
+                <div className="grid gap-8 md:grid-cols-[200px_1fr] md:gap-10 lg:grid-cols-[260px_1fr]">
+                  {/* Group spine */}
+                  <div className="md:sticky md:top-28 md:self-start">
+                    <div className="flex items-center gap-2.5">
+                      <span className={`h-1.5 w-1.5 rounded-full ${tone.dot}`} />
+                      <h3 className="font-display text-[22px] font-medium text-ink-900">{group.label}</h3>
+                    </div>
+                    <p className="mt-3 max-w-[34ch] text-[14.5px] leading-relaxed text-ink-500">
+                      {group.blurb}
+                    </p>
+                    <p className="index-label mt-4">
+                      {String(group.items.length).padStart(2, '0')} tools
+                    </p>
+                  </div>
+
+                  {/* Items */}
+                  <ul className="border-t border-[color:var(--rule)]">
+                    {group.items.map((item) => (
+                      <li key={item.title}>
+                        <div className="group flex items-start gap-5 border-b border-[color:var(--rule-soft)] py-6 transition-all duration-400 ease-smooth hover:pl-2">
+                          <span
+                            className={`grid h-11 w-11 shrink-0 place-items-center rounded-pill ${tone.wash} ${tone.text} transition-all duration-400 ease-smooth group-hover:scale-105`}
+                          >
+                            <Icon name={item.icon} className="h-[19px] w-[19px]" />
+                          </span>
+                          <div className="min-w-0">
+                            <h4 className="font-display text-[19px] font-medium text-ink-900">
+                              {item.title}
+                            </h4>
+                            <p className="mt-1.5 text-[14.5px] leading-relaxed text-ink-500">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default FeaturesSection;
+export default FeaturesSection

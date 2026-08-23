@@ -1,261 +1,226 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Navbar from './Navbar'
 import Footer from './Footer'
 import SEO from './SEO'
-import HeroSection from './HeroSection'
-import ContactAppSection from './ContactAppSection'
-import ContactStatsSection from './ContactStatsSection'
-import AboutSection from './AboutSection'
-import FadeIn from './FadeIn'
+import Icon from './Icon'
+import Reveal from './Reveal'
+import PageHero from './PageHero'
+import SectionHeading from './SectionHeading'
+import DemoForm from './DemoForm'
+import FAQ from './FAQ'
+import Testimonials from './Testimonials'
+import IncludedSection from './IncludedSection'
+import { SITE, FAQS } from '../data/site'
+
+const CHANNELS = [
+  {
+    label: 'Call the team',
+    icon: 'phone',
+    rows: [
+      { value: SITE.phonePrimary, href: SITE.phonePrimaryHref },
+      { value: SITE.phoneSecondary, href: SITE.phoneSecondaryHref },
+    ],
+    note: 'Monday to Saturday, 10am – 7pm IST',
+  },
+  {
+    label: 'Write to us',
+    icon: 'mail',
+    rows: [
+      { value: SITE.sales, href: `mailto:${SITE.sales}` },
+      { value: SITE.email, href: `mailto:${SITE.email}` },
+    ],
+    note: 'We reply within one business day',
+  },
+  {
+    label: 'Find us',
+    icon: 'pin',
+    rows: [{ value: 'Ahmedabad, Gujarat, India', href: null }],
+    note: `c/o ${SITE.builtBy} — ${SITE.address}`,
+  },
+]
+
+const WHO_SHOULD = [
+  { t: 'Committee members & secretaries', d: 'You are the one fielding the calls. Start here — a demo takes about thirty minutes.' },
+  { t: 'Society managers & RWAs', d: 'Bring the treasurer and one committee member; we will walk through billing and complaints properly.' },
+  { t: 'Builders & multi-tower complexes', d: 'Several towers under one management? We will cover how the structure maps across.' },
+  { t: 'Brands & service providers', d: 'Looking to reach residents inside trusted communities — write to us about partnerships.' },
+]
 
 function Contact() {
-    const [expandedFAQ, setExpandedFAQ] = useState(null)
-
-    const toggleFAQ = (index) => {
-        setExpandedFAQ(expandedFAQ === index ? null : index)
-    }
-
-    const faqs = [
-        {
-            question: "What is Aanganone and how does it work?",
-            answer: "Aanganone is a comprehensive society management platform that digitizes all aspects of community living. It connects residents, staff, and management through a unified app, enabling features like complaint tracking, announcements, event management, amenity booking, and more. Everything happens in real-time with complete transparency."
-        },
-        {
-            question: "How long does it take to set up Aanganone for my society?",
-            answer: "Setting up Aanganone is quick and straightforward. Typically, it takes just a few days to get your entire society up and running. Our team provides complete onboarding support, including data migration, staff training, and resident registration. Most societies are fully operational within 3-5 business days."
-        },
-        {
-            question: "Is my society data secure on Aanganone?",
-            answer: "Yes, data security is our top priority. Aanganone uses industry-standard encryption, secure cloud storage, and regular security audits. All data is backed up automatically and stored in compliance with data protection regulations. We never share your society's information with third parties."
-        },
-        {
-            question: "Can residents access Aanganone on their phones?",
-            answer: "Absolutely! Aanganone is available as a mobile app for both iOS and Android devices. Residents can download the app, register with their society, and access all features including complaints, announcements, events, and amenity bookings right from their smartphones."
-        },
-        {
-            question: "What happens if we need help or face technical issues?",
-            answer: "We provide 24/7 dedicated support to all our societies. Our support team is available via phone, email, and in-app chat. We also offer on-site training sessions and regular check-ins to ensure your society gets the most out of the platform."
-        },
-        {
-            question: "How much does Aanganone cost?",
-            answer: "Aanganone offers flexible pricing plans based on your society's size and specific requirements. We provide transparent pricing with no hidden costs. Contact us for a free demo and customized pricing quote that fits your society's budget."
-        },
-        {
-            question: "Can we customize features according to our society needs?",
-            answer: "Yes, Aanganone is highly customizable. We understand that every society has unique requirements. Our team works with you to configure the platform according to your specific needs, including custom workflows, approval processes, and feature preferences."
-        },
-        {
-            question: "What if our staff is not tech-savvy?",
-            answer: "No worries! Aanganone is designed to be user-friendly and intuitive. We provide comprehensive training sessions for all staff members, including step-by-step guides and video tutorials. Our support team is always available to assist, and most staff members become comfortable with the platform within a few days."
-        }
-    ]
-
   const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
   }
 
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://aanganone.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Contact",
-        "item": "https://aanganone.com/contact"
-      }
-    ]
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aanganone.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://aanganone.com/contact' },
+    ],
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-paper">
       <SEO
-        title="Contact Us - Get in Touch with AanganOne"
-        description="Ready to transform your society management? Contact AanganOne for a demo, pricing inquiries, or support. We're here to help."
+        title="Contact AanganOne — Book a Free Society Demo"
+        description="Talk to the AanganOne team about a free demo for your society. Call +91 88664 48967, email sales@aanganone.com, or send your society details and we will reply within a business day."
         url="https://aanganone.com/contact"
         schema={[faqSchema, breadcrumbSchema]}
       />
-            <HeroSection />
-            <FadeIn delay={100}><ContactAppSection /></FadeIn>
-            <FadeIn delay={200}><ContactStatsSection /></FadeIn>
 
-            {/* About Section */}
-            <FadeIn delay={300}><AboutSection /></FadeIn>
+      <Navbar />
 
-            {/* Reach Communities Section */}
-            <FadeIn>
-                <section className="reach-communities">
-                    <div className="reach-communities-container">
-                        {/* Header Section */}
-                        <div className="reach-communities-header">
-                            <p className="reach-communities-label">The Aanganone App</p>
-                            <h2 className="section-title">A Smarter Way to Manage Communities</h2>
-                            <p className="reach-communities-tagline">One platform designed to simplify everyday community living</p>
-                        </div>
+      <main id="main">
+        <PageHero
+          label="Get in touch"
+          title={<>Let's get your society onboard.</>}
+          lede="New to a society or already running one? Tell us what you need — better security at the gate, smoother communication, or maintenance that collects itself."
+          meta={[
+            { label: 'Demo length', value: 'About 30 minutes' },
+            { label: 'Response', value: 'Within one business day' },
+            { label: 'Cost', value: 'Free, no obligation' },
+          ]}
+        >
+          <a href="#demo" className="btn-ink">
+            Request a demo
+            <Icon name="arrow" className="h-4 w-4" />
+          </a>
+          <a href={SITE.phonePrimaryHref} className="btn-line">
+            <Icon name="phone" className="h-4 w-4" />
+            {SITE.phonePrimary}
+          </a>
+        </PageHero>
 
-                        {/* Main Content Block */}
-                        <div className="reach-communities-content">
-                            {/* Left Column - Text Content */}
-                            <div className="reach-communities-text">
-                                <h3 className="reach-communities-heading">Reach the Right Communities</h3>
-                                <p className="reach-communities-description">
-                                    From premium residential societies to growing neighborhoods across cities, Aanganone helps businesses, service providers, and local brands connect directly with active communities.
-                                </p>
-                                <p className="reach-communities-description">
-                                    Engage residents where they live, build trust, and grow visibility through a smart, community-first platform.
-                                </p>
-                                <button className="reach-communities-button">
-                                    Submit <span className="arrow">→</span>
-                                </button>
-                            </div>
+        {/* ---------- Channels ---------- */}
+        <section className="band-tight bg-paper">
+          <div className="shell">
+            <div className="grid gap-px overflow-hidden rounded-card bg-[color:var(--rule)] md:grid-cols-3">
+              {CHANNELS.map((c, i) => (
+                <Reveal key={c.label} delay={i * 80}>
+                  <div className="group h-full bg-sand-50 p-8 transition-colors duration-400 hover:bg-white">
+                    <span className="grid h-11 w-11 place-items-center rounded-pill border border-ink-900/12 text-ink-700 transition-colors duration-400 group-hover:border-indigo-600 group-hover:bg-indigo-600 group-hover:text-paper">
+                      <Icon name={c.icon} className="h-[18px] w-[18px]" />
+                    </span>
 
-                            {/* Right Column - Image */}
-                            <div className="reach-communities-image">
-                                <img
-                                    src="/images/Frame 2118388460.png"
-                                    alt="Aanganone App"
-                                    className="reach-communities-img"
-                                />
-                            </div>
-                        </div>
+                    <h2 className="mt-6 font-display text-[20px] font-medium text-ink-900">{c.label}</h2>
+
+                    <div className="mt-4 space-y-1.5">
+                      {c.rows.map((r) =>
+                        r.href ? (
+                          <a key={r.value} href={r.href} className="link-rule block text-[16px]">
+                            {r.value}
+                          </a>
+                        ) : (
+                          <span key={r.value} className="block text-[16px] font-medium text-ink-900">
+                            {r.value}
+                          </span>
+                        ),
+                      )}
                     </div>
-                </section>
-            </FadeIn>
 
-            {/* FAQ Section */}
-            <FadeIn>
-                <section className="faq">
-                    <div className="container">
-                        <div className="faq-label">
-                            <div className="faq-label-icon">
-                                <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
-                            </div>
-                            <span>FAQ'S</span>
-                        </div>
-                        <h2 className="section-title">Frequently Asked Questions</h2>
-                        <p className="section-subtitle">Everything you need to know about Aanganone</p>
+                    <p className="mt-4 text-[13.5px] leading-relaxed text-ink-400">{c.note}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                        <div className="faq-list">
-                            {faqs.map((faq, index) => (
-                                <div key={index} className={`faq-item ${expandedFAQ === index ? 'expanded' : ''}`}>
-                                    <div
-                                        className="faq-question"
-                                        onClick={() => toggleFAQ(index)}
-                                    >
-                                        <span className="faq-question-text">{faq.question}</span>
-                                        <span className="faq-toggle">
-                                            {expandedFAQ === index ? (
-                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                                                </svg>
-                                            ) : (
-                                                '+'
-                                            )}
-                                        </span>
-                                    </div>
-                                    {expandedFAQ === index && (
-                                        <div className="faq-answer">{faq.answer}</div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
+        <DemoForm id="demo" n="01" />
+
+        {/* ---------- Who should get in touch ---------- */}
+        <section className="band bg-paper">
+          <div className="shell">
+            <SectionHeading
+              n="02"
+              label="Who gets in touch"
+              title={<>Whether you run one society or twenty towers.</>}
+              lede="Tell us which of these sounds like you and we will shape the demo around it."
+            />
+
+            <div className="mt-9 sm:mt-14">
+              <div className="rule-strong" />
+              {WHO_SHOULD.map((w, i) => (
+                <Reveal key={w.t} delay={i * 70}>
+                  <div className="group grid gap-2 border-b border-[color:var(--rule-soft)] py-6 transition-all duration-400 ease-smooth hover:pl-2 md:grid-cols-[40px_320px_1fr] md:gap-8">
+                    <span className="font-mono text-[11px] text-ink-300">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="font-display text-[20px] font-medium text-ink-900">{w.t}</h3>
+                    <p className="max-w-[58ch] text-[14.5px] leading-relaxed text-ink-500">{w.d}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <IncludedSection n="03" />
+
+        {/* ---------- Partnerships ---------- */}
+        <section className="band bg-paper">
+          <div className="shell">
+            <Reveal>
+              <div className="grain relative overflow-hidden rounded-card bg-indigo-600">
+                <div className="jaali-cream pointer-events-none absolute inset-0" />
+
+                <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-[1fr_.8fr] lg:items-center lg:gap-10 lg:p-16">
+                  <div>
+                    <p className="font-mono text-[11px] font-medium uppercase tracking-wider2 text-terracotta-300">
+                      For brands & service providers
+                    </p>
+
+                    <h2 className="display-l mt-6 max-w-[15ch] text-paper">
+                      Reach the right communities.
+                    </h2>
+
+                    <p className="mt-6 max-w-[50ch] text-[16.5px] leading-relaxed text-paper/75">
+                      From premium residential societies to growing neighbourhoods across cities,
+                      AanganOne helps businesses, service providers and local brands connect
+                      directly with active communities — where residents actually live.
+                    </p>
+
+                    <a
+                      href={`mailto:${SITE.sales}?subject=Partnership%20enquiry`}
+                      className="btn-cream mt-9"
+                    >
+                      Partner with us
+                      <Icon name="arrow" className="h-4 w-4" />
+                    </a>
+                  </div>
+
+                  {/* Screen framed in an arch so it reads as a device, not a raw asset */}
+                  <div className="relative mx-auto w-full max-w-[300px] lg:max-w-none">
+                    <div className="arch relative aspect-[3/4.2] border border-paper/20 bg-paper/10">
+                      <img
+                        src="/images/Frame 2118388460.png"
+                        alt="The AanganOne community dashboard"
+                        width={1095}
+                        height={1963}
+                        className="absolute bottom-0 left-1/2 w-[74%] -translate-x-1/2"
+                        loading="lazy"
+                      />
                     </div>
-                </section>
-            </FadeIn>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
 
-            {/* Testimonials Section */}
-            <FadeIn>
-                <section id="about" className="testimonials">
-                    <div className="container">
-                        <div className="testimonials-label">
-                            <div className="testimonials-label-icon">
-                                <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
-                            </div>
-                            <span>Society Reviews</span>
-                        </div>
-                        <h2 className="section-title">How Aanganone Makes a Difference</h2>
-                        <div className="testimonials-wrapper">
-                            <div className="testimonials-grid">
-                                <div className="testimonial-card">
-                                    <div className="quote-icon">"</div>
-                                    <div className="testimonial-header">
-                                        <h3 className="society-name">Shaligram</h3>
-                                        <span className="society-suffix">Society</span>
-                                    </div>
-                                    <p className="testimonial-text">
-                                        At Shaligram Society, the secretary used to handle 50+ calls weekly for maintenance and updates. After Aanganone, everything is digital residents submit complaints in-app, staff get instant assignments, and updates are tracked in real-time.
-                                    </p>
-                                    <div className="testimonial-author">
-                                        <div className="author-avatar"></div>
-                                        <div className="author-info">
-                                            <div className="author-role">Secretary</div>
-                                            <div className="author-society">Shaligram Society</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="testimonial-card">
-                                    <div className="quote-icon">"</div>
-                                    <div className="testimonial-header">
-                                        <h3 className="society-name">Indraprasth</h3>
-                                        <span className="society-suffix">Society</span>
-                                    </div>
-                                    <p className="testimonial-text">
-                                        Managing finances and vendor payments was a nightmare at Indraprasth Society. With Aanganone, all transactions are transparent, automated, and accessible. Our residents can track every rupee spent, and we've reduced accounting errors by 90%.
-                                    </p>
-                                    <div className="testimonial-author">
-                                        <div className="author-avatar"></div>
-                                        <div className="author-info">
-                                            <div className="author-role">Secretary</div>
-                                            <div className="author-society">Indraprasth Society</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="testimonial-card">
-                                    <div className="quote-icon">"</div>
-                                    <div className="testimonial-header">
-                                        <h3 className="society-name">Satyagruh</h3>
-                                        <span className="society-suffix">Society</span>
-                                    </div>
-                                    <p className="testimonial-text">
-                                        Event management used to be chaotic at Satyagruh Society. Now with Aanganone, residents can book amenities, RSVP to events, and get instant notifications. Our community engagement has increased significantly, and everything runs smoothly.
-                                    </p>
-                                    <div className="testimonial-author">
-                                        <div className="author-avatar"></div>
-                                        <div className="author-info">
-                                            <div className="author-role">Secretary</div>
-                                            <div className="author-society">Satyagruh Society</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="testimonials-nav">
-                                <button className="nav-arrow nav-prev">‹</button>
-                                <button className="nav-arrow nav-next">›</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </FadeIn>
+        <Testimonials n="04" />
+        <FAQ n="05" />
+      </main>
 
-            {/* Footer */}
-            <Footer />
-        </div>
-    )
+      <Footer />
+    </div>
+  )
 }
 
 export default Contact

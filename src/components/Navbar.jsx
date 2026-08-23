@@ -1,151 +1,225 @@
-import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import Icon from './Icon'
+import { SITE } from '../data/site'
 
-function Navbar({ simple, isDark }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+const LINKS = [
+  { to: '/features', label: 'Features' },
+  { to: '/pricing', label: 'Pricing' },
+  { to: '/app', label: 'Get the app' },
+  { to: '/resources', label: 'Resources' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
+]
 
-  const isActive = (path) => {
-    if (isDark) {
-      return location.pathname === path ? "text-white font-bold" : "text-gray-200 hover:text-white font-medium";
+function Navbar({ simple = false }) {
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+  const sheetRef = useRef(null)
+  const closeRef = useRef(null)
+  const openRef = useRef(null)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
     }
-    return location.pathname === path ? "text-[#473F52] font-semibold" : "text-gray-700 hover:text-gray-900 font-medium";
-  };
+  }, [open])
 
-  const textColor = isDark ? "text-white" : "text-[#473F52]";
-  const mobileBtnColor = isDark ? "text-white" : "text-gray-700";
+  // Escape closes the sheet, and focus is kept inside it while it is open.
+  useEffect(() => {
+    if (!open) return
+
+    const sheet = sheetRef.current
+    const focusable = () =>
+      [...(sheet?.querySelectorAll('a[href], button:not([disabled])') ?? [])].filter(
+        (el) => el.offsetParent !== null,
+      )
+
+    closeRef.current?.focus()
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false)
+        openRef.current?.focus()
+        return
+      }
+
+      if (e.key !== 'Tab') return
+
+      const items = focusable()
+      if (items.length === 0) return
+
+      const first = items[0]
+      const last = items[items.length - 1]
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [open])
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50">
-      <div className="container-padding pt-6 pb-4">
-        <div className="flex items-center justify-between">
-          {/* Logo Section */}
-          <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-2 md:gap-4">
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 bg-paper/95 backdrop-blur-md transition-all duration-600 ease-smooth ${
+          scrolled ? 'border-b border-[color:var(--rule-soft)] shadow-paper' : 'border-b border-transparent'
+        }`}
+      >
+        <div className="shell">
+          <div className="flex h-[82px] items-center justify-between gap-6">
+            {/* Wordmark */}
+            <Link to="/" className="group flex items-center gap-3" aria-label="AanganOne home">
               <img
                 src="/images/Aanganone-logo.svg"
-                alt="AANGANOne Logo"
-                className="h-8 md:h-12 w-auto"
+                alt=""
+                className="h-8 w-auto transition-transform duration-600 ease-smooth group-hover:scale-110 md:h-9"
               />
+              <span className="font-display text-[22px] font-medium tracking-tightest text-ink-900 md:text-[25px]">
+                AanganOne
+              </span>
             </Link>
-          </div>
 
-          {simple ? (
-            <div className="flex items-center">
-              <Link
-                to="/"
-                className="text-[#7B2CBF] font-bold text-xs md:text-lg px-3 py-1.5 md:px-6 md:py-2 border-2 border-[#7B2CBF] rounded-full hover:bg-[#7B2CBF] hover:text-white transition-all duration-300 whitespace-nowrap"
-              >
-                ← Back
+            {simple ? (
+              <Link to="/" className="link-rule text-[15px]">
+                <Icon name="arrow" className="h-4 w-4 rotate-180" />
+                Back to site
               </Link>
-            </div>
-          ) : (
-            <>
-              {/* Navigation Links */}
-              <div className="hidden md:flex items-center gap-8">
-                <Link
-                  to="/"
-                  className={`${isActive('/')} transition-colors duration-200 text-lg`}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/about"
-                  className={`${isActive('/about')} transition-colors duration-200 text-lg`}
-                >
-                  About
-                </Link>
-                <Link
-                  to="/features"
-                  className={`${isActive('/features')} transition-colors duration-200 text-lg`}
-                >
-                  Features
-                </Link>
-                <Link
-                  to="/contact"
-                  className={`${isActive('/contact')} transition-colors duration-200 text-lg`}
-                >
-                  Contact
-                </Link>
-              </div>
+            ) : (
+              <>
+                {/* Desktop nav */}
+                <nav className="hidden items-center gap-9 lg:flex">
+                  {LINKS.map((link) => (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      className={({ isActive }) =>
+                        `group relative flex items-baseline text-[15px] font-medium transition-colors duration-300 ${
+                          isActive ? 'text-ink-900' : 'text-ink-500 hover:text-ink-900'
+                        }`
+                      }
+                    >
+                      {({ isActive }) => (
+                        <>
+                          {link.label}
+                          <span
+                            className={`absolute -bottom-1.5 left-0 h-px w-full origin-left bg-ink-900 transition-transform duration-400 ease-smooth ${
+                              isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                            }`}
+                          />
+                        </>
+                      )}
+                    </NavLink>
+                  ))}
+                </nav>
 
-              {/* Mobile Menu Button */}
-              <button
-                className={`md:hidden ${mobileBtnColor} focus:outline-none`}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
-              </button>
-            </>
-          )}
+                <div className="flex items-center gap-3">
+                  <Link to="/contact" className="btn-ink btn-sm hidden sm:inline-flex">
+                    Book a demo
+                  </Link>
+
+                  <button
+                    type="button"
+                    ref={openRef}
+                    onClick={() => setOpen(true)}
+                    aria-label="Open menu"
+                    aria-expanded={open}
+                    className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-pill border border-ink-900/15 transition-colors hover:border-ink-900 lg:hidden"
+                  >
+                    <span className="block h-px w-4 bg-ink-900" />
+                    <span className="block h-px w-4 bg-ink-900" />
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
+      </header>
 
-        {/* Mobile Menu Overlay and Drawer */}
-        {!simple && isMenuOpen && (
-          <>
-            {/* Backdrop Overlay */}
-            <div
-              className="md:hidden fixed inset-0 bg-black/50 z-40 backdrop-blur-sm transition-opacity"
-              onClick={() => setIsMenuOpen(false)}
-            />
-
-            {/* Sliding Drawer */}
-            <div className="md:hidden fixed top-0 right-0 h-screen w-[70%] bg-white shadow-2xl z-50 animate-slide-in-right flex flex-col p-6">
-              {/* Close Button Header */}
-              <div className="flex justify-end mb-8">
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-500 hover:text-gray-700 focus:outline-none"
-                >
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
+      {/* Mobile menu — full sheet */}
+      {!simple && (
+        <div
+          className={`fixed inset-0 z-[60] lg:hidden ${open ? '' : 'pointer-events-none'}`}
+          aria-hidden={!open}
+        >
+          <div
+            onClick={() => setOpen(false)}
+            className={`absolute inset-0 bg-ink-950/40 transition-opacity duration-400 ${open ? 'opacity-100' : 'opacity-0'}`}
+          />
+          <aside
+            ref={sheetRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            className={`absolute inset-x-0 top-0 flex max-h-full flex-col overflow-y-auto bg-paper px-6 pb-10 pt-6 transition-transform duration-600 ease-smooth ${
+              open ? 'translate-y-0' : '-translate-y-full'
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <img src="/images/Aanganone-logo.svg" alt="" className="h-8 w-auto" />
+                <span className="font-display text-[22px] font-medium text-ink-900">AanganOne</span>
               </div>
-
-              {/* Menu Links */}
-              <div className="flex flex-col gap-6">
-                <Link
-                  to="/"
-                  className="text-gray-800 hover:text-[#7b3cff] font-medium text-xl border-b border-gray-100 pb-4"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/about"
-                  className="text-gray-800 hover:text-[#7b3cff] font-medium text-xl border-b border-gray-100 pb-4"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About
-                </Link>
-                <Link
-                  to="/features"
-                  className="text-gray-800 hover:text-[#7b3cff] font-medium text-xl border-b border-gray-100 pb-4"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Features
-                </Link>
-                <Link
-                  to="/contact"
-                  className="text-gray-800 hover:text-[#7b3cff] font-medium text-xl border-b border-gray-100 pb-4"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </div>
+              <button
+                type="button"
+                ref={closeRef}
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+                className="grid h-10 w-10 place-items-center rounded-pill border border-ink-900/15 text-ink-700 transition-colors hover:border-ink-900"
+              >
+                <Icon name="close" className="h-4 w-4" />
+              </button>
             </div>
-          </>
-        )}
-      </div>
-    </nav>
-  );
+
+            <nav className="mt-10 flex flex-col">
+              <NavLink
+                to="/"
+                end
+                onClick={() => setOpen(false)}
+                className="flex items-baseline border-t border-[color:var(--rule-soft)] py-5 font-display text-[30px] font-medium text-ink-900"
+              >
+                Home
+              </NavLink>
+              {LINKS.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
+                  className="flex items-baseline border-t border-[color:var(--rule-soft)] py-5 font-display text-[30px] font-medium text-ink-900"
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
+
+            <div className="mt-10 space-y-3 border-t border-[color:var(--rule-soft)] pt-8">
+              <Link to="/contact" onClick={() => setOpen(false)} className="btn-ink w-full">
+                Book a free demo
+              </Link>
+              <a href={SITE.phonePrimaryHref} className="btn-line w-full">
+                <Icon name="phone" className="h-4 w-4" />
+                {SITE.phonePrimary}
+              </a>
+            </div>
+          </aside>
+        </div>
+      )}
+    </>
+  )
 }
 
-export default Navbar;
+export default Navbar

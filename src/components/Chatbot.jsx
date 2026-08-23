@@ -85,7 +85,7 @@ const Chatbot = () => {
                 } else if (typeof data === 'string') {
                     botText = data;
                 }
-            } catch (e) {
+            } catch {
                 // If it's not JSON, use the text directly
                 botText = responseText;
             }

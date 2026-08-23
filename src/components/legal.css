@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Long-form legal documents — Privacy Policy & Terms.
+   Replaces the two 597-line legacy stylesheets. Scoped to .legal-body so
+   nothing here can leak into the rest of the site.
+   ========================================================================== */
+
+.legal-body {
+  color: #463F55;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ---------------- sections ---------------- */
+.legal-body .privacy-section {
+  padding-top: 44px;
+  border-top: 1px solid rgba(23, 19, 34, 0.07);
+}
+
+.legal-body .privacy-section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.legal-body .privacy-section + .privacy-section {
+  margin-top: 44px;
+}
+
+.legal-body .privacy-section > h2 {
+  margin: 0 0 18px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #171322;
+  scroll-margin-top: calc(var(--nav-h) + 28px);
+}
+
+.legal-body .privacy-section > p {
+  margin: 0 0 18px;
+  max-width: 68ch;
+}
+
+.legal-body h3 {
+  margin: 0 0 8px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #171322;
+}
+
+/* ---------------- the itemised blocks ---------------- */
+.legal-body .privacy-item {
+  position: relative;
+  margin: 0 0 12px;
+  padding: 22px 24px;
+  background: #F7F2EA;
+  border-radius: 16px;
+  transition: background 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.legal-body .privacy-item:hover {
+  background: #fff;
+  transform: translateX(3px);
+}
+
+.legal-body .privacy-item > p {
+  margin: 0 0 8px;
+  max-width: 66ch;
+  font-size: 15px;
+}
+
+.legal-body .privacy-item > p:last-child { margin-bottom: 0; }
+
+.legal-body .privacy-item strong {
+  font-weight: 600;
+  color: #241F2F;
+}
+
+/* ---------------- lists ---------------- */
+.legal-body ul,
+.legal-body ol {
+  margin: 0 0 18px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.legal-body li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 22px;
+  max-width: 66ch;
+  font-size: 15px;
+}
+
+.legal-body li::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #C9603C;
+}
+
+/* ---------------- links ---------------- */
+.legal-body a {
+  color: #4F55D8;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.25s ease;
+}
+
+.legal-body a:hover { color: #C9603C; }
+
+/* ---------------- intro panel ---------------- */
+.legal-body .privacy-intro {
+  margin-bottom: 44px;
+  padding: 34px;
+  background: #241F2F;
+  border-radius: 20px;
+  color: #FBF8F4;
+}
+
+.legal-body .privacy-intro .intro-title {
+  margin: 14px 0 12px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #FBF8F4;
+}
+
+.legal-body .privacy-intro .intro-description {
+  max-width: 60ch;
+  margin: 0;
+  color: rgba(251, 248, 244, 0.72);
+}
+
+.legal-body .privacy-intro .intro-description strong { color: #FBF8F4; }
+
+.legal-body .intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #E0A188;
+  background: rgba(251, 248, 244, 0.08);
+  border: 1px solid rgba(251, 248, 244, 0.18);
+  border-radius: 999px;
+}
+
+.legal-body .intro-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.legal-body .intro-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(251, 248, 244, 0.06);
+  border: 1px solid rgba(251, 248, 244, 0.12);
+  border-radius: 14px;
+  transition: background 0.35s ease;
+}
+
+.legal-body .intro-feature:hover { background: rgba(251, 248, 244, 0.11); }
+
+.legal-body .intro-feature-icon { font-size: 20px; line-height: 1.2; }
+
+.legal-body .intro-feature-text strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #FBF8F4;
+}
+
+.legal-body .intro-feature-text p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(251, 248, 244, 0.62);
+}
+
+/* ---------------- contact block ---------------- */
+.legal-body .contact-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(23, 19, 34, 0.07);
+  font-size: 15px;
+}
+
+.legal-body .contact-detail strong {
+  min-width: 120px;
+  font-weight: 600;
+  color: #241F2F;
+}
+
+/* ---------------- tables, if any ---------------- */
+.legal-body table {
+  width: 100%;
+  margin: 0 0 20px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.legal-body th,
+.legal-body td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(23, 19, 34, 0.07);
+}
+
+.legal-body th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #7E7691;
+}
+
+@media (max-width: 640px) {
+  .legal-body .privacy-intro { padding: 24px; }
+  .legal-body .privacy-item { padding: 18px; }
+}

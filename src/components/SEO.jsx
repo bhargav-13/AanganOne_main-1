@@ -1,65 +1,24 @@
-import { Helmet } from 'react-helmet-async';
-
+/**
+ * Page metadata.
+ *
+ * Uses React 19's built-in document metadata support: <title>, <meta> and
+ * <link> rendered here are hoisted into <head> automatically and removed
+ * when the route unmounts. That replaces react-helmet-async, which does not
+ * support React 19 and broke `npm install` with a peer-dependency conflict.
+ */
 function SEO({
-  title = "AanganOne | #1 Smart Society Management Platform",
-  description = "AanganOne is the leading society management software for residential communities. Streamline billing, security, and RWA operations with AanganOne app.",
-  keywords = "AanganOne, AanganOne app, AanganOne login, AanganOne society, community management, society management, RWA software",
-  ogImage = "https://aanganone.com/og-image.jpg",
-  url = "https://aanganone.com/",
-  schema = []
+  title = 'AanganOne — Smart Society, Apartment & Community Management App',
+  description = 'AanganOne digitises society management end to end — QR visitor entry, maintenance billing, UPI payments, complaints, notices, staff and parking in one app for residents, admins, committees and guards.',
+  keywords = 'AanganOne, society management app, apartment management software, community management platform India, QR visitor entry, maintenance billing, RWA software, gated community app',
+  ogImage = 'https://aanganone.com/og-image.png',
+  url = 'https://aanganone.com/',
+  schema = [],
 }) {
-  const baseStructuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "AanganOne",
-      "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Society Management Software",
-      "operatingSystem": "Web, iOS, Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "1250"
-      },
-      "description": description,
-      "url": url,
-      "image": ogImage,
-      "provider": {
-        "@type": "Organization",
-        "name": "AanganOne",
-        "url": "https://aanganone.com"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "AanganOne",
-      "url": "https://aanganone.com",
-      "logo": "https://aanganone.com/images/Aanganone-logo.svg",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "support@aanganone.com",
-        "url": "https://aanganone.com/contact"
-      },
-      "sameAs": [
-        "https://www.facebook.com/aanganone",
-        "https://twitter.com/aanganone",
-        "https://www.linkedin.com/company/aanganone",
-        "https://www.instagram.com/aanganone"
-      ]
-    }
-  ];
-
-  const structuredData = [...baseStructuredData, ...schema];
-
+  /* Global entity schema (Organization, WebSite, SoftwareApplication) lives in
+     index.html so it is present before hydration. Only page-specific schema —
+     BreadcrumbList, FAQPage, Article — is emitted here, to avoid duplicates. */
   return (
-    <Helmet>
+    <>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
@@ -70,6 +29,8 @@ function SEO({
       <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="AanganOne" />
+      <meta property="og:locale" content="en_IN" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -77,15 +38,16 @@ function SEO({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {/* Canonical */}
       <link rel="canonical" href={url} />
 
-      {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
-    </Helmet>
-  );
+      {schema.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      )}
+    </>
+  )
 }
 
-export default SEO;
+export default SEO

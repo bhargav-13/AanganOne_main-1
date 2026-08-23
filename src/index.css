@@ -2,19 +2,195 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* ==========================================================================
+   AanganOne — "Courtyard" design system
+   Warm paper surfaces, architectural arches, editorial type.
+   ========================================================================== */
 
-/* Universal container padding - matches navbar padding (left/right only) */
-@layer components {
-  .container-padding {
-    @apply px-8 md:px-16 lg:px-40;
+@layer base {
+  :root {
+    --nav-h: 82px;
+    --rule: rgba(23, 19, 34, 0.12);
+    --rule-soft: rgba(23, 19, 34, 0.07);
+    color-scheme: light;
   }
 
-  /* Section with vertical padding */
-  .section-padding {
-    @apply py-12 md:py-20;
+  * { -webkit-tap-highlight-color: transparent; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 24px);
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink-600 antialiased;
+    margin: 0;
+    overflow-x: hidden;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-900;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection { background: #E4A140; color: #171322; }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #F1E9DD; }
+  ::-webkit-scrollbar-thumb { background: #A38B6C; }
+  ::-webkit-scrollbar-thumb:hover { background: #171322; }
+
+  :focus-visible {
+    outline: 2px solid #4F55D8;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* ------------------------------------------------ layout */
+  .shell { @apply mx-auto w-full max-w-[1280px] px-6 sm:px-8 lg:px-12; }
+  .shell-narrow { @apply mx-auto w-full max-w-[880px] px-6 sm:px-8; }
+
+  /* Vertical rhythm. Mobile is deliberately much tighter than desktop —
+     96px of dead space top and bottom is a lot of thumb-scrolling on a phone. */
+  .band { @apply relative py-14 sm:py-20 md:py-32; }
+  .band-tight { @apply relative py-10 sm:py-14 md:py-20; }
+
+  /* Hairline rules do the structural work instead of drop shadows */
+  .rule { @apply h-px w-full bg-[color:var(--rule-soft)]; }
+  .rule-strong { @apply h-px w-full bg-[color:var(--rule)]; }
+
+  /* ------------------------------------------------ type */
+  .display-xl {
+    @apply font-display text-[clamp(2.8rem,7.4vw,5.6rem)] leading-[0.94];
+    font-weight: 500;
+    letter-spacing: -0.045em;
+  }
+
+  .display-l {
+    @apply font-display text-[clamp(2.2rem,5vw,3.9rem)] leading-[1.02];
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .display-m {
+    @apply font-display text-[clamp(1.6rem,2.8vw,2.4rem)] leading-[1.12];
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  .lede { @apply text-[1.0625rem] leading-[1.65] text-ink-500 sm:text-[1.1875rem]; }
+
+  /* Small caps index label — the editorial spine of the page */
+  .index-label {
+    @apply font-mono text-[11px] font-medium uppercase tracking-wider2 text-ink-400;
+  }
+
+  .serif-italic { @apply font-display italic; }
+
+  /* ------------------------------------------------ buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-pill px-7 py-3.5 text-[15px] font-semibold
+           transition-all duration-400 ease-smooth disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ink { @apply btn bg-ink-900 text-paper hover:bg-indigo-600 hover:shadow-raise; }
+
+  .btn-line {
+    @apply btn border border-ink-900/20 bg-transparent text-ink-900 hover:border-ink-900 hover:bg-ink-900 hover:text-paper;
+  }
+
+  .btn-cream { @apply btn bg-paper text-ink-900 hover:bg-terracotta-500 hover:text-paper; }
+
+  .btn-line-cream {
+    @apply btn border border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink-900;
+  }
+
+  .btn-sm { @apply px-5 py-2.5 text-[14px]; }
+
+  /* Text link with a rule that draws itself */
+  .link-rule { @apply relative inline-flex items-center gap-2 font-medium text-ink-900; }
+
+  .link-rule::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-400 ease-smooth;
+  }
+
+  .link-rule:hover::after { @apply origin-left scale-x-100; }
+
+  /* ------------------------------------------------ surfaces */
+  .panel {
+    @apply relative rounded-card border border-[color:var(--rule-soft)] bg-white transition-all duration-400 ease-smooth;
+  }
+
+  .panel-sand { @apply relative rounded-card bg-sand-50 transition-all duration-400 ease-smooth; }
+
+  /* The courtyard arch — the signature shape of the brand */
+  .arch { border-radius: 9999px 9999px 28px 28px; overflow: hidden; }
+  .arch-sm { border-radius: 9999px 9999px 14px 14px; overflow: hidden; }
+
+  /* ------------------------------------------------ pattern */
+  /* Jaali — a fine lattice of hairlines, like a carved courtyard screen.
+     Deliberately NOT a checkerboard: solid alternating squares read as a
+     transparency grid rather than as texture. */
+  .jaali {
+    background-image:
+      linear-gradient(to right, rgba(23, 19, 34, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(23, 19, 34, 0.045) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .jaali-cream {
+    background-image:
+      linear-gradient(to right, rgba(251, 248, 244, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(251, 248, 244, 0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  .grain::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 opacity-[0.055];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  /* ------------------------------------------------ forms */
+  .field {
+    @apply w-full rounded-none border-0 border-b border-ink-900/20 bg-transparent px-0 py-3 text-[16px] text-ink-900
+           transition-colors duration-300 placeholder:text-ink-300
+           focus:border-indigo-600 focus:outline-none focus:ring-0;
+  }
+
+  .field-label {
+    @apply mb-1 block font-mono text-[10.5px] font-medium uppercase tracking-wider2 text-ink-400;
+  }
+
+  .mask-fade {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+}
+
+/* ------------------------------------------------ motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 24px));
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

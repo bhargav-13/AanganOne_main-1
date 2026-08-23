@@ -1,610 +1,233 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import Footer from './Footer'
 import Navbar from './Navbar'
+import Footer from './Footer'
 import SEO from './SEO'
-import FadeIn from './FadeIn'
+import Icon from './Icon'
+import Reveal from './Reveal'
+import PageHero from './PageHero'
+import SectionHeading from './SectionHeading'
+import FeaturesSection from './FeaturesSection'
+import FlowsSection from './FlowsSection'
+import RolesSection from './RolesSection'
+import StepsSection from './StepsSection'
+import IncludedSection from './IncludedSection'
+import ComparisonTable from './ComparisonTable'
+import TrustSection from './TrustSection'
+import Testimonials from './Testimonials'
+import DemoForm from './DemoForm'
+import FAQ from './FAQ'
+import { FEATURE_GROUPS } from '../data/site'
+
+const PILLARS = [
+  {
+    title: 'Community',
+    image: '/images/Frame 2118388466.png',
+    alt: 'Residents celebrating a festival in their society',
+    desc: 'A complete management system for RWAs and society administrators — communication, maintenance requests, complaints, vendor coordination, notices and amenity bookings from one place.',
+  },
+  {
+    title: 'Security',
+    image: '/images/Frame 2118388467.png',
+    alt: 'A security guard at a society entrance gate',
+    desc: 'Track visitor entries, manage approvals and keep visibility across the society. Residents feel secure while management keeps real control over access.',
+  },
+  {
+    title: 'Accounting',
+    image: '/images/Frame 2118388468.png',
+    alt: 'Society accounts being worked out on a calculator',
+    desc: 'From maintenance billing and collections to expense tracking and reports — society finances stay clear, accurate and effortless to maintain.',
+  },
+]
+
+const GALLERY = [
+  { src: '/images/Frame 2118388466 (2).png', alt: 'Amenities booking', cap: 'Amenities booking' },
+  { src: '/images/Frame 2118388467 (1).png', alt: 'Accounting module', cap: 'Accounting' },
+  { src: '/images/Frame 2118388468 (2).png', alt: 'Visitor management', cap: 'Visitor management' },
+  { src: '/images/Frame 2118388466 (3).png', alt: 'Parking management', cap: 'Parking' },
+  { src: '/images/Frame 2118388467 (2).png', alt: 'Child safety alerts', cap: 'Safety alerts' },
+  { src: '/images/Frame 2118388468 (3).png', alt: 'Guard patrolling', cap: 'Guard patrolling' },
+  { src: '/images/Frame 2118388466 (4).png', alt: 'Resident communication', cap: 'Communication' },
+  { src: '/images/Frame 2118388467 (3).png', alt: 'Complaints management', cap: 'Complaints' },
+  { src: '/images/Frame 2118388468 (4).png', alt: 'Access control', cap: 'Access control' },
+]
 
 function HowItWorks() {
-  const [activeCard, setActiveCard] = useState(null)
-
-  const handleCardClick = (cardId) => {
-    setActiveCard(prev => prev === cardId ? null : cardId)
-  }
-
-  const handleCardHover = (cardId) => {
-    setActiveCard(cardId)
-  }
+  const totalFeatures = FEATURE_GROUPS.reduce((sum, g) => sum + g.items.length, 0)
 
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://aanganone.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Features",
-        "item": "https://aanganone.com/features"
-      }
-    ]
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aanganone.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://aanganone.com/features' },
+    ],
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F7F7]">
+    <div className="min-h-screen bg-paper">
       <SEO
-        title="Features - One App for Every Community Need | AanganOne"
-        description="Explore AanganOne's powerful features for residential societies. From visitor management and complaints to amenity booking and accounting, see how it works."
+        title="Features — Everything Your Society Runs On | AanganOne"
+        description="Every AanganOne feature in detail: QR visitor entry, gate security, emergency alerts, maintenance billing, UPI payments, notices, complaints, staff, parking and the resident directory."
         url="https://aanganone.com/features"
         schema={[breadcrumbSchema]}
       />
-      {/* Header with Logo and Navigation - Same as Feature Page */}
+
       <Navbar />
 
-      {/* Hero Section */}
-      <FadeIn>
-        <section className="how-it-works-hero">
-          {/* Purple Bubble Decorations - Same as Home Page */}
-          <div className="hero-bubble-1"></div>
-          <div className="hero-bubble-2"></div>
-          <div className="hero-bubble-3"></div>
-          <div className="hero-bubble-4"></div>
-          <div className="hero-bubble-5"></div>
+      <main id="main">
+        <PageHero
+          label="Product tour"
+          title={<>Everything a society runs on, in one place.</>}
+          lede="Thirteen tools across security, billing, communication and daily management — built to work together rather than as separate systems bolted onto each other."
+          meta={[
+            { label: 'Tools', value: `${totalFeatures} across 4 groups` },
+            { label: 'Roles', value: 'Resident · Admin · Committee · Guard' },
+            { label: 'Go live', value: 'Typically 3–5 days' },
+          ]}
+        >
+          <Link to="/contact" className="btn-ink">
+            Book a demo
+            <Icon name="arrow" className="h-4 w-4" />
+          </Link>
+          <a href="#features" className="btn-line">Browse the catalog</a>
+        </PageHero>
 
-          <div className="how-it-works-hero-container relative z-10">
-            <div className="how-it-works-hero-content">
-              <h1 className="how-it-works-hero-title">
-                There's a better<br />
-                way to manage<br />
-                your community.
-              </h1>
-              <p className="how-it-works-hero-subtitle">
-                See how one platform can simplify every part of community living.
-              </p>
-              <Link to="/contact" className="how-it-works-hero-button inline-flex items-center justify-center">
-                Book A Demo
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.5 15L12.5 10L7.5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </div>
-          </div>
+        <FeaturesSection n="01" />
+        <FlowsSection n="02" />
 
-        </section>
-      </FadeIn>
+        {/* ---------- Three pillars ---------- */}
+        <section className="band bg-paper">
+          <div className="shell">
+            <SectionHeading
+              n="03"
+              label="Three pillars"
+              title={<>Community, security, accounting.</>}
+              lede="The three systems a residential society cannot run without — and the three AanganOne was built around."
+            />
 
-      {/* Built for Today Section */}
-      <FadeIn>
-        <section className="how-it-works-content">
-          <div className="how-it-works-content-container">
-            {/* Section Title */}
-            <h2 className="section-title">
-              1. Built for Today, Ready for Tomorrow
-            </h2>
+            <div className="mt-10 grid sm:mt-16 gap-6 md:grid-cols-3">
+              {PILLARS.map((p, i) => (
+                <Reveal key={p.title} delay={i * 100}>
+                  <article className="group h-full">
+                    <div className="arch relative aspect-[4/5] bg-sand-100">
+                      <img
+                        src={p.image}
+                        alt={p.alt}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-600 ease-smooth group-hover:scale-[1.04]"
+                        loading="lazy"
+                      />
 
-            {/* Two Cards with iPhone Mockups */}
-            <div className="how-it-works-cards-grid">
-              {/* Card 1 */}
-              <div className="how-it-works-card">
-                <div className="how-it-works-phones">
-                  <div className="how-it-works-phone">
-                    <img
-                      src="/images/iPhone 14 Pro Max1.png"
-                      alt="Aanganone App Screen 1"
-                      className="how-it-works-phone-img"
-                    />
-                  </div>
-                  <div className="how-it-works-phone">
-                    <img
-                      src="/images/iPhone 14 Pro Max2.png"
-                      alt="Aanganone App Screen 2"
-                      className="how-it-works-phone-img"
-                    />
-                  </div>
-                </div>
-              </div>
+                      {/* just enough shading for the label to sit on */}
+                      <span className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink-950/80 via-ink-950/35 to-transparent" />
 
-              {/* Card 2 */}
-              <div className="how-it-works-card">
-                <div className="how-it-works-phones">
-                  <div className="how-it-works-phone">
-                    <img
-                      src="/images/iPhone 14 Pro Max3.png"
-                      alt="Aanganone App Screen 3"
-                      className="how-it-works-phone-img"
-                    />
-                  </div>
-                  <div className="how-it-works-phone">
-                    <img
-                      src="/images/iPhone 14 Pro Max4.png"
-                      alt="Aanganone App Screen 4"
-                      className="how-it-works-phone-img"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Description Text */}
-            <div className="space-y-6">
-              <p
-                className="text-base md:text-lg lg:text-xl leading-relaxed"
-                style={{ color: '#77787C' }}
-              >
-                Aanganone wasn't created to copy what already exists — it was built to solve real challenges faced by modern residential communities. Designed with clarity and practicality in mind, the platform focuses on simplifying everyday operations and improving how communities function.
-              </p>
-              <p
-                className="text-base md:text-lg lg:text-xl leading-relaxed"
-                style={{ color: '#77787C' }}
-              >
-                From communication to daily management, Aanganone is thoughtfully crafted to support residents, RWAs, and management teams with tools that are easy to use and ready to scale.
-              </p>
-            </div>
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* Hear It from Our Community Section */}
-      <FadeIn>
-        <section className="relative z-10 bg-[#F7F7F7] section-padding">
-          <div className="container-padding">
-            {/* Section Title */}
-            <h2 className="section-title">
-              2. Hear It from Our Community
-            </h2>
-
-            {/* Two Column Layout */}
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-              {/* Left Column - Text Content */}
-              <div className="flex-1 space-y-6">
-                <p
-                  className="text-base md:text-lg lg:text-xl leading-relaxed"
-                  style={{ color: '#77787C' }}
-                >
-                  Real experiences speak louder than numbers. Discover how Aanganone is helping communities simplify daily living through the voices of residents and management teams who use it every day.
-                </p>
-                <p
-                  className="text-base md:text-lg lg:text-xl leading-relaxed"
-                  style={{ color: '#77787C' }}
-                >
-                  From smoother communication and faster issue resolution to clearer processes and better coordination, Aanganone supports communities in ways that truly matter. These stories reflect everyday moments — when managing a society feels simpler, communication feels clearer, and community life feels more connected.
-                </p>
-              </div>
-
-              {/* Right Column - Image */}
-              <div className="flex-1 flex justify-center lg:justify-end">
-                <img
-                  src="/images/Group 11.png"
-                  alt="Community Testimonials"
-                  className="w-full lg:max-w-[120%] h-auto object-contain scale-110 origin-right"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* One App for Every Community Need Section */}
-      <FadeIn>
-        <section className="relative z-10 bg-[#F7F7F7] section-padding">
-          <div className="container-padding">
-            {/* Section Title */}
-            <h2 className="section-title">
-              3. One App for Every Community Need
-            </h2>
-
-            {/* Three Images Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Image 1 - Hover Flip */}
-              <div className={`flip-card rounded-3xl ${activeCard === 'card1' ? 'flipped' : ''}`} onClick={() => handleCardClick('card1')} onMouseEnter={() => handleCardHover('card1')}>
-                <div className="flip-card-inner">
-                  {/* Front Side */}
-                  <div className="flip-card-front rounded-3xl overflow-hidden h-full" style={{ border: '1px solid #77787C80' }}>
-                    <img
-                      src="/images/Frame 2118388466.png"
-                      alt="Community Need 1"
-                      className="w-full h-full object-cover bg-[#EEF0FF]"
-                    />
-                  </div>
-                  {/* Back Side */}
-                  <div className="flip-card-back rounded-3xl" style={{ border: '1px solid #77787C80' }}>
-                    <h3 className="text-2xl font-semibold mb-4 text-[#473F52]">Community</h3>
-                    <p className="text-sm md:text-base text-[#77787C] leading-relaxed text-justify">
-                      A complete management system designed for RWAs and society administrators. Handle communication, maintenance requests, complaints, vendor coordination, notices, and amenity bookings from one centralized dashboard. With clear workflows and real-time updates, everyday administration becomes simpler and more efficient.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Image 2 - Hover Flip */}
-              <div className={`flip-card rounded-3xl ${activeCard === 'card2' ? 'flipped' : ''}`} onClick={() => handleCardClick('card2')} onMouseEnter={() => handleCardHover('card2')}>
-                <div className="flip-card-inner">
-                  {/* Front Side */}
-                  <div className="flip-card-front rounded-3xl overflow-hidden h-full" style={{ border: '1px solid #77787C80' }}>
-                    <img
-                      src="/images/Frame 2118388467.png"
-                      alt="Community Need 2"
-                      className="w-full h-full object-cover bg-[#FFF7E6]"
-                    />
-                  </div>
-                  {/* Back Side */}
-                  <div className="flip-card-back rounded-3xl" style={{ border: '1px solid #77787C80' }}>
-                    <h3 className="text-2xl font-semibold mb-4 text-[#473F52]">Security</h3>
-                    <p className="text-sm md:text-base text-[#77787C] leading-relaxed text-justify">
-                      Create a safer community with smart and reliable security tools. Track visitor entries, manage approvals, and maintain better visibility across the society. Aanganone helps residents feel secure while giving management better control over access and monitoring.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Image 3 - Hover Flip */}
-              <div className={`flip-card rounded-3xl ${activeCard === 'card3' ? 'flipped' : ''}`} onClick={() => handleCardClick('card3')} onMouseEnter={() => handleCardHover('card3')}>
-                <div className="flip-card-inner">
-                  {/* Front Side */}
-                  <div className="flip-card-front rounded-3xl overflow-hidden h-full" style={{ border: '1px solid #77787C80' }}>
-                    <img
-                      src="/images/Frame 2118388468.png"
-                      alt="Community Need 3"
-                      className="w-full h-full object-cover bg-[#E6FFF0]"
-                    />
-                  </div>
-                  {/* Back Side */}
-                  <div className="flip-card-back rounded-3xl" style={{ border: '1px solid #77787C80' }}>
-                    <h3 className="text-2xl font-semibold mb-4 text-[#473F52]">Accounting</h3>
-                    <p className="text-sm md:text-base text-[#77787C] leading-relaxed text-justify">
-                      Manage society finances with confidence and transparency. From maintenance billing and collections to expense tracking and reports, Aanganone simplifies financial management and helps RWAs maintain clear, accurate records without manual effort.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* Privacy at the Heart of Aanganone Section */}
-      <FadeIn>
-        <section className="relative z-10 bg-[#F7F7F7] section-padding">
-          <div className="container-padding">
-            {/* Section Title */}
-            <h2
-              className="text-[32px] md:text-[48px] font-semibold text-center mb-10"
-              style={{ color: '#473F52' }}
-            >
-              4. Privacy at the Heart of Aanganone
-            </h2>
-
-            {/* Privacy Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Card 1 - Highlighted */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Secure Infrastructure
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Aanganone is built on a secure and reliable architecture that prioritizes data protection, controlled access, and safe storage of information.
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Privacy-First Design
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Our systems are designed to collect only what's necessary and ensure data is used responsibly, clearly, and for the benefit of the community.
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Compliance Ready
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  We align our processes with applicable data protection guidelines and evolving regulatory requirements to help communities stay compliant and confident.
-                </p>
-              </div>
-
-              {/* Card 4 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Role-Based Access
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Access is granted strictly based on user roles. Residents, committee members, and staff only see what they are authorized to nothing more.
-                </p>
-              </div>
-
-              {/* Card 5 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Encrypted Data Storage
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Sensitive information is securely stored using encryption practices to protect data from unauthorized access.
-                </p>
-              </div>
-
-              {/* Card 6 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Data Ownership & Control
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Communities retain control over their data. Information is never shared or used without clear purpose and consent.
-                </p>
-              </div>
-
-              {/* Card 7 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Regular Security Reviews
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Our systems undergo periodic checks and improvements to stay aligned with evolving security best practices.
-                </p>
-              </div>
-
-              {/* Card 8 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Safe Cloud Infrastructure
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Aanganone runs on reliable cloud infrastructure with strong security controls, backups, and availability measures.
-                </p>
-              </div>
-
-              {/* Card 9 */}
-              <div className="privacy-card bg-white rounded-3xl p-8 border border-[#E5E5E5] shadow-sm flex flex-col items-start text-left">
-                <h3 className="text-2xl font-semibold mb-4 w-full text-center" style={{ color: '#473F52' }}>
-                  Audit & Activity Logs
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#77787C' }}>
-                  Important actions are recorded to maintain accountability and clarity across administrative and financial activities.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* A Marketplace Made for Your Community Section */}
-      <FadeIn>
-        <section className="relative z-10 bg-[#F7F7F7] section-padding">
-          <div className="container-padding">
-            {/* Section Title */}
-            <h2
-              className="text-[32px] md:text-[48px] font-semibold text-center mb-10"
-              style={{ color: '#473F52' }}
-            >
-              5. A Marketplace Made for Your Community
-            </h2>
-
-            {/* Two Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-              {/* Image 1 */}
-              <div className="rounded-3xl overflow-hidden" style={{ border: '1px solid #77787C80' }}>
-                <img
-                  src="/images/Frame 2118388466 (1).png"
-                  alt="Marketplace Screen 1"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Image 2 */}
-              <div className="rounded-3xl overflow-hidden" style={{ border: '1px solid #77787C80' }}>
-                <img
-                  src="/images/Frame 2118388468 (1).png"
-                  alt="Marketplace Screen 2"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Description Text */}
-            <div className="space-y-6">
-              <p
-                className="text-base md:text-lg lg:text-xl leading-relaxed"
-                style={{ color: '#77787C' }}
-              >
-                Aanganone offers a dedicated community marketplace where residents can easily connect to buy, sell, and discover useful products and services all within a trusted environment.
-              </p>
-              <p
-                className="text-base md:text-lg lg:text-xl leading-relaxed"
-                style={{ color: '#77787C' }}
-              >
-                Designed for convenience and safety, the marketplace helps neighbours trade items, find local services, and explore relevant offerings without stepping outside their community network.
-              </p>
-            </div>
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* More to Explore Section */}
-      <FadeIn>
-        <section className="relative z-10 bg-[#F7F7F7] section-padding">
-          <div className="container-padding">
-            {/* Section Title */}
-            <h2
-              className="text-[32px] md:text-[48px] font-semibold text-center mb-10"
-              style={{ color: '#473F52' }}
-            >
-              6. And There’s So Much More to Explore
-            </h2>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Feature 1 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388466 (2).png"
-                  alt="Amenities Booking"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 2 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388467 (1).png"
-                  alt="Accounting Module"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 3 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388468 (2).png"
-                  alt="Visitor Management"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 4 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388466 (3).png"
-                  alt="Parking Management"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 5 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388467 (2).png"
-                  alt="Child Safety Alerts"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 6 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388468 (3).png"
-                  alt="Guard Patrolling"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 7 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388466 (4).png"
-                  alt="Resident Communication"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 8 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388467 (3).png"
-                  alt="Complaints Management"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Feature 9 */}
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img
-                  src="/images/Frame 2118388468 (4).png"
-                  alt="ANPR Access"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* Society Reviews Section */}
-      <FadeIn>
-        <section id="about" className="testimonials testimonials-feature">
-          <div className="container">
-            <div className="testimonials-label testimonials-label-feature">
-              <div className="testimonials-label-icon">
-                <img src="/images/twemoji_house.svg" alt="House" className="badge-icon-img" />
-              </div>
-              <span>Society Reviews</span>
-            </div>
-            <h2 className="section-title">How Aanganone Makes a Difference</h2>
-            <div className="testimonials-wrapper">
-              <div className="testimonials-grid">
-                <div className="testimonial-card">
-                  <div className="quote-icon">"</div>
-                  <div className="testimonial-header">
-                    <h3 className="society-name">Shaligram</h3>
-                    <span className="society-suffix">Society</span>
-                  </div>
-                  <p className="testimonial-text">
-                    At Shaligram Society, the secretary used to handle 50+ calls weekly for maintenance and updates. After Aanganone, everything is digital residents submit complaints in-app, staff get instant assignments, and updates are tracked in real-time.
-                  </p>
-                  <div className="testimonial-author">
-                    <div className="author-avatar"></div>
-                    <div className="author-info">
-                      <div className="author-role">Secretary</div>
-                      <div className="author-society">Shaligram Society</div>
+                      <span className="absolute bottom-6 left-6 font-display text-[26px] font-medium text-paper drop-shadow-sm">
+                        {p.title}
+                      </span>
                     </div>
-                  </div>
-                </div>
-                <div className="testimonial-card">
-                  <div className="quote-icon">"</div>
-                  <div className="testimonial-header">
-                    <h3 className="society-name">Indraprasth</h3>
-                    <span className="society-suffix">Society</span>
-                  </div>
-                  <p className="testimonial-text">
-                    Managing finances and vendor payments was a nightmare at Indraprasth Society. With Aanganone, all transactions are transparent, automated, and accessible. Our residents can track every rupee spent, and we've reduced accounting errors by 90%.
-                  </p>
-                  <div className="testimonial-author">
-                    <div className="author-avatar"></div>
-                    <div className="author-info">
-                      <div className="author-role">Secretary</div>
-                      <div className="author-society">Indraprasth Society</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="testimonial-card">
-                  <div className="quote-icon">"</div>
-                  <div className="testimonial-header">
-                    <h3 className="society-name">Satyagruh</h3>
-                    <span className="society-suffix">Society</span>
-                  </div>
-                  <p className="testimonial-text">
-                    Event management used to be chaotic at Satyagruh Society. Now with Aanganone, residents can book amenities, RSVP to events, and get instant notifications. Our community engagement has increased significantly, and everything runs smoothly.
-                  </p>
-                  <div className="testimonial-author">
-                    <div className="author-avatar"></div>
-                    <div className="author-info">
-                      <div className="author-role">Secretary</div>
-                      <div className="author-society">Satyagruh Society</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="testimonials-nav">
-                <button className="nav-arrow nav-prev">‹</button>
-                <button className="nav-arrow nav-next">›</button>
-              </div>
+                    <p className="mt-6 text-[14.5px] leading-relaxed text-ink-500">{p.desc}</p>
+                  </article>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
-      </FadeIn>
 
-      {/* Footer */}
+        <RolesSection n="04" />
+        <StepsSection n="05" />
+        <IncludedSection n="06" />
+
+        {/* ---------- Marketplace ---------- */}
+        <section className="band bg-sand-50">
+          <div className="shell">
+            <SectionHeading
+              n="07"
+              label="Community marketplace"
+              title={<>A marketplace made for your neighbours.</>}
+              lede="A dedicated space where residents buy, sell and discover useful products and services — inside a trusted, verified community rather than out on the open internet."
+            />
+
+            <div className="mt-10 grid sm:mt-16 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+              <Reveal>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {['/images/Frame 2118388466 (1).png', '/images/Frame 2118388468 (1).png'].map((src, i) => (
+                    <div
+                      key={src}
+                      className={`overflow-hidden rounded-card border border-[color:var(--rule-soft)] bg-white ${
+                        i === 1 ? 'sm:translate-y-8' : ''
+                      }`}
+                    >
+                      <img src={src} alt="AanganOne marketplace" width={1400} height={1110} className="w-full" loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+
+              <Reveal delay={120}>
+                <div>
+                  <div className="rule-strong" />
+                  {[
+                    { t: 'Verified neighbours only', d: 'Listings stay within the society, so buyers and sellers already know each other.' },
+                    { t: 'Local services, found locally', d: 'Tutors, repairs, tiffin services — the things residents ask the group chat for.' },
+                    { t: 'No stepping outside', d: 'Trade and discovery happen inside the community network, not on a public marketplace.' },
+                  ].map((x, i) => (
+                    <div key={x.t} className="flex items-start gap-5 border-b border-[color:var(--rule-soft)] py-6">
+                      <span className="font-mono text-[11px] text-ink-300">{String(i + 1).padStart(2, '0')}</span>
+                      <div>
+                        <h3 className="font-display text-[19px] font-medium text-ink-900">{x.t}</h3>
+                        <p className="mt-1.5 max-w-[46ch] text-[14.5px] leading-relaxed text-ink-500">{x.d}</p>
+                      </div>
+                    </div>
+                  ))}
+                  <Link to="/contact" className="btn-ink mt-9">
+                    See it in a demo
+                    <Icon name="arrow" className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- Screen gallery ---------- */}
+        <section className="band bg-paper">
+          <div className="shell">
+            <SectionHeading
+              n="08"
+              label="Inside the app"
+              title={<>And plenty more besides.</>}
+              lede="Amenities, patrolling, child safety, access control — the details that keep daily society life running quietly in the background."
+            />
+
+            <div className="mt-10 grid sm:mt-16 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {GALLERY.map((g, i) => (
+                <Reveal key={g.src} delay={(i % 3) * 80}>
+                  <figure className="group">
+                    <div className="overflow-hidden rounded-card border border-[color:var(--rule-soft)] bg-sand-50">
+                      <img
+                        src={g.src}
+                        alt={g.alt}
+                        width={1400}
+                        height={1062}
+                        className="w-full transition-transform duration-600 ease-smooth group-hover:scale-[1.03]"
+                        loading="lazy"
+                      />
+                    </div>
+                    <figcaption className="index-label mt-4">{g.cap}</figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <ComparisonTable n="09" />
+        <TrustSection n="10" />
+        <Testimonials n="11" />
+        <FAQ n="12" />
+        <DemoForm n="13" />
+      </main>
+
       <Footer />
-
-      {/* Bottom Border Line */}
-
     </div>
   )
 }
