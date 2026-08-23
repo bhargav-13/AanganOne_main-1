@@ -65,7 +65,8 @@ export default {
       },
       letterSpacing: {
         tightest: '-0.045em',
-        wider2: '0.18em',
+        // Tracking for the small-caps mono labels (.index-label and friends).
+        wider2: '0.12em',
       },
       keyframes: {
         rise: { '0%': { opacity: '0', transform: 'translateY(22px)' }, '100%': { opacity: '1', transform: 'none' } },
