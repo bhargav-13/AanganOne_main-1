@@ -66,13 +66,16 @@ function GetTheApp() {
             { label: 'Cost to residents', value: 'Free — the society is billed' },
           ]}
         >
+          {/* Short labels on mobile — the full wording will not fit half a row */}
           <a href={SITE.playStore} target="_blank" rel="noopener noreferrer" className="btn-ink">
-            <Icon name="play" filled className="h-4 w-4" />
-            Get it on Google Play
+            <Icon name="play" filled className="h-4 w-4 shrink-0" />
+            <span className="sm:hidden">Google Play</span>
+            <span className="hidden sm:inline">Get it on Google Play</span>
           </a>
           <a href={SITE.appStore} target="_blank" rel="noopener noreferrer" className="btn-line">
-            <Icon name="apple" filled className="h-4 w-4" />
-            Download on the App Store
+            <Icon name="apple" filled className="h-4 w-4 shrink-0" />
+            <span className="sm:hidden">App Store</span>
+            <span className="hidden sm:inline">Download on the App Store</span>
           </a>
         </PageHero>
 

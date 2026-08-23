@@ -5,6 +5,7 @@ import SEO from './SEO'
 import Icon from './Icon'
 import Reveal from './Reveal'
 import PageHero from './PageHero'
+import FeatureTile from './FeatureTile'
 import SectionHeading from './SectionHeading'
 import FeaturesSection from './FeaturesSection'
 import FlowsSection from './FlowsSection'
@@ -39,16 +40,18 @@ const PILLARS = [
   },
 ]
 
+/* Drawn tiles rather than stock photos: the photos carried their titles burned
+   into the image, which duplicated the caption underneath. */
 const GALLERY = [
-  { src: '/images/Frame 2118388466 (2).png', alt: 'Amenities booking', cap: 'Amenities booking' },
-  { src: '/images/Frame 2118388467 (1).png', alt: 'Accounting module', cap: 'Accounting' },
-  { src: '/images/Frame 2118388468 (2).png', alt: 'Visitor management', cap: 'Visitor management' },
-  { src: '/images/Frame 2118388466 (3).png', alt: 'Parking management', cap: 'Parking' },
-  { src: '/images/Frame 2118388467 (2).png', alt: 'Child safety alerts', cap: 'Safety alerts' },
-  { src: '/images/Frame 2118388468 (3).png', alt: 'Guard patrolling', cap: 'Guard patrolling' },
-  { src: '/images/Frame 2118388466 (4).png', alt: 'Resident communication', cap: 'Communication' },
-  { src: '/images/Frame 2118388467 (3).png', alt: 'Complaints management', cap: 'Complaints' },
-  { src: '/images/Frame 2118388468 (4).png', alt: 'Access control', cap: 'Access control' },
+  { kind: 'amenities', cap: 'Amenities booking', desc: 'residents booking the clubhouse and pool' },
+  { kind: 'accounting', cap: 'Accounting', desc: 'society income and expenses tracked' },
+  { kind: 'visitor', cap: 'Visitor management', desc: 'a visitor presenting a pass at the door' },
+  { kind: 'parking', cap: 'Parking', desc: 'a car in an assigned parking bay' },
+  { kind: 'safety', cap: 'Safety alerts', desc: 'an alert reaching the whole society' },
+  { kind: 'patrol', cap: 'Guard patrolling', desc: 'a guard patrolling the boundary at night' },
+  { kind: 'communication', cap: 'Communication', desc: 'one notice reaching every flat' },
+  { kind: 'complaints', cap: 'Complaints', desc: 'a complaint moving along its status track' },
+  { kind: 'access', cap: 'Access control', desc: 'a QR pass read by the gate scanner' },
 ]
 
 function HowItWorks() {
@@ -200,16 +203,13 @@ function HowItWorks() {
 
             <div className="mt-10 grid sm:mt-16 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {GALLERY.map((g, i) => (
-                <Reveal key={g.src} delay={(i % 3) * 80}>
+                <Reveal key={g.kind} delay={(i % 3) * 80}>
                   <figure className="group">
-                    <div className="overflow-hidden rounded-card border border-[color:var(--rule-soft)] bg-sand-50">
-                      <img
-                        src={g.src}
-                        alt={g.alt}
-                        width={1400}
-                        height={1062}
-                        className="w-full transition-transform duration-600 ease-smooth group-hover:scale-[1.03]"
-                        loading="lazy"
+                    <div className="overflow-hidden rounded-card border border-[color:var(--rule-soft)] bg-sand-50 p-4 transition-colors duration-400 group-hover:bg-white sm:p-6">
+                      <FeatureTile
+                        kind={g.kind}
+                        label={g.desc}
+                        className="transition-transform duration-600 ease-smooth group-hover:scale-[1.03]"
                       />
                     </div>
                     <figcaption className="index-label mt-4">{g.cap}</figcaption>

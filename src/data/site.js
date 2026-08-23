@@ -15,7 +15,7 @@ export const SITE = {
   sales: 'sales@aanganone.com',
   address: 'PNTC, Vejalpur, Times of India Press Road, Ahmedabad — 380015, Gujarat, India',
   playStore: 'https://play.google.com/store/apps/details?id=com.mobile.aanganone',
-  appStore: 'https://apps.apple.com/in/iphone/search?term=aanganone',
+  appStore: 'https://apps.apple.com/in/app/aanganone-smart-living/id6759190747',
   social: {
     instagram: 'https://instagram.com/aanganone',
     twitter: 'https://twitter.com/aanganone',

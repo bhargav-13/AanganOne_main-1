@@ -116,7 +116,7 @@ function Pricing() {
             <Icon name="arrow" className="h-4 w-4" />
           </a>
           <a href={SITE.phonePrimaryHref} className="btn-line">
-            <Icon name="phone" className="h-4 w-4" />
+            <Icon name="phone" className="hidden h-4 w-4 shrink-0 sm:inline-block" />
             {SITE.phonePrimary}
           </a>
         </PageHero>
