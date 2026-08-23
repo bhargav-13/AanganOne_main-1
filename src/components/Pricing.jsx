@@ -132,9 +132,7 @@ function Pricing() {
             />
 
             <Reveal className="mt-10 sm:mt-16">
-              <div className="overflow-x-auto">
-                <ScaleScene className="mx-auto min-w-[620px] max-w-[860px]" />
-              </div>
+              <ScaleScene className="mx-auto max-w-[860px]" />
             </Reveal>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">

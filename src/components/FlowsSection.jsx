@@ -55,7 +55,7 @@ function FlowsSection({ n = '03' }) {
                     <Icon name={f.icon} className="h-[17px] w-[17px]" />
                   </span>
                   <span>
-                    <span className={`block font-mono text-[10px] uppercase tracking-wider2 ${on ? 'text-paper/50' : 'text-ink-300'}`}>
+                    <span className={`block font-mono text-[11.5px] sm:text-[10px] uppercase tracking-wider2 ${on ? 'text-paper/50' : 'text-ink-300'}`}>
                       0{i + 1}
                     </span>
                     <span className={`mt-1 block font-display text-[17px] font-medium leading-tight ${on ? 'text-paper' : 'text-ink-900'}`}>

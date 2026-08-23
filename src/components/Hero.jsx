@@ -100,7 +100,7 @@ function Hero() {
             <div>
               <span className="inline-flex items-center gap-2.5 rounded-pill border border-ink-900/12 bg-paper px-4 py-2">
                 <span className="h-2 w-2 animate-blink rounded-full bg-terracotta-500" />
-                <span className="font-mono text-[10.5px] uppercase tracking-wider2 text-ink-600">
+                <span className="font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 text-ink-600">
                   Today, in a society like yours
                 </span>
               </span>
@@ -125,7 +125,7 @@ function Hero() {
                       <span className="block truncate text-[14.5px] font-semibold text-ink-900">
                         {a.label}
                       </span>
-                      <span className="block truncate font-mono text-[10.5px] uppercase tracking-wider2 text-ink-400">
+                      <span className="block truncate font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 text-ink-400">
                         {a.meta}
                       </span>
                     </span>

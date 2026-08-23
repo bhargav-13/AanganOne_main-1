@@ -29,7 +29,7 @@ function DayInLife({ n = '04' }) {
                 <span className="font-mono text-[13px] tabular-nums text-ink-900">{d.time}</span>
 
                 <span
-                  className={`inline-flex w-fit items-center rounded-pill px-3 py-1 font-mono text-[10px] uppercase tracking-wider2 ${WHO[d.who]}`}
+                  className={`inline-flex w-fit items-center rounded-pill px-3 py-1 font-mono text-[11.5px] sm:text-[10px] uppercase tracking-wider2 ${WHO[d.who]}`}
                 >
                   {d.who}
                 </span>

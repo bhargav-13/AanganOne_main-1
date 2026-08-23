@@ -246,7 +246,7 @@ function Feature() {
 
                   <div className="mt-6 space-y-5">
                     <div>
-                      <span className="font-mono text-[10.5px] uppercase tracking-wider2 text-paper/40">Email</span>
+                      <span className="font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 text-paper/40">Email</span>
                       <a
                         href="mailto:sales@codelixitsolutions.com"
                         className="mt-1 block text-[16px] text-paper transition-colors hover:text-terracotta-300"
@@ -255,7 +255,7 @@ function Feature() {
                       </a>
                     </div>
                     <div>
-                      <span className="font-mono text-[10.5px] uppercase tracking-wider2 text-paper/40">Office</span>
+                      <span className="font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 text-paper/40">Office</span>
                       <p className="mt-1 max-w-sm text-[15px] leading-relaxed text-paper/80">{SITE.address}</p>
                     </div>
                   </div>
@@ -295,7 +295,7 @@ function Feature() {
                     <div className="jaali-cream absolute inset-0 opacity-60" />
 
                     <span className="relative flex items-center justify-between">
-                      <span className={`font-mono text-[10.5px] uppercase tracking-wider2 ${p.text} opacity-70`}>
+                      <span className={`font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 ${p.text} opacity-70`}>
                         {p.tag}
                       </span>
                       <Icon
@@ -308,7 +308,7 @@ function Feature() {
                       <h3 className={`relative max-w-[22ch] font-display text-[22px] font-medium leading-snug ${p.text}`}>
                         {p.title}
                       </h3>
-                      <span className={`relative mt-3 block font-mono text-[10.5px] ${p.text} opacity-60`}>
+                      <span className={`relative mt-3 block font-mono text-[11.5px] sm:text-[10.5px] ${p.text} opacity-60`}>
                         {p.readMins} min read
                       </span>
                     </span>

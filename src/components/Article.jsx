@@ -190,7 +190,7 @@ function Article() {
                   <Link to={`/resources/${a.slug}`} className="group block h-full">
                     <div className={`arch relative aspect-[5/3] ${a.tint}`}>
                       <div className="jaali-cream absolute inset-0" />
-                      <span className={`absolute bottom-4 left-5 font-mono text-[10.5px] uppercase tracking-wider2 ${a.text} opacity-80`}>
+                      <span className={`absolute bottom-4 left-5 font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 ${a.text} opacity-80`}>
                         {a.tag}
                       </span>
                     </div>

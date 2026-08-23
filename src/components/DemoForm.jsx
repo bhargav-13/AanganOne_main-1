@@ -286,7 +286,7 @@ function DemoForm({ id = 'demo', n = '09' }) {
                   )}
 
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                    <p className="max-w-[26ch] font-mono text-[10.5px] uppercase tracking-wider2 text-ink-400">
+                    <p className="max-w-[26ch] font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 text-ink-400">
                       No obligation · reply within a business day
                     </p>
                     <button type="submit" className="btn-ink" disabled={status === 'sending'}>

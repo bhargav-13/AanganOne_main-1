@@ -66,6 +66,7 @@ function Glyph({ kind, active }) {
 
 function GateJourney({ n = '03' }) {
   const [ref, progress] = useScrollProgress({ startAt: 0.85, span: 0.5 })
+  const [mobileRef, mobileProgress] = useScrollProgress({ startAt: 0.9, span: 0.6 })
 
   // How far the travelling token has moved along the track.
   const tokenX = START_X + (END_X - START_X) * progress
@@ -85,12 +86,36 @@ function GateJourney({ n = '03' }) {
         />
 
         <Reveal className="mt-9 sm:mt-14">
-          <div className="overflow-x-auto">
-            <GateScene className="mx-auto min-w-[640px] max-w-[880px]" />
-          </div>
+          <GateScene className="mx-auto max-w-[880px]" />
         </Reveal>
 
-        <Reveal className="mt-9 sm:mt-14">
+        {/* --- Mobile: vertical stepper, which suits a phone better than a track --- */}
+        <div ref={mobileRef} className="mt-10 sm:hidden">
+          <div className="rule-strong" />
+          {STATIONS.map((st, i) => {
+            const active = mobileProgress * STATIONS.length >= i + 0.35
+            return (
+              <div key={st.label} className="flex items-start gap-4 border-b border-[color:var(--rule-soft)] py-5">
+                <span
+                  className={`grid h-11 w-11 shrink-0 place-items-center rounded-pill border-2 transition-colors duration-500 ${
+                    active ? 'border-indigo-600 bg-indigo-600 text-paper' : 'border-ink-900/15 text-ink-500'
+                  }`}
+                >
+                  <svg viewBox="-14 -14 28 28" className="h-[18px] w-[18px]">
+                    <Glyph kind={i} active={active} />
+                  </svg>
+                </span>
+                <div className="min-w-0">
+                  <span className="font-mono text-[11px] text-ink-300">0{i + 1}</span>
+                  <h3 className="font-display text-[19px] font-medium leading-snug text-ink-900">{st.label}</h3>
+                  <p className="mt-1 text-[14px] leading-snug text-ink-500">{st.sub}</p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        <Reveal className="mt-9 hidden sm:mt-14 sm:block">
           <div ref={ref} className="overflow-x-auto">
             <svg
               viewBox="0 0 1200 300"

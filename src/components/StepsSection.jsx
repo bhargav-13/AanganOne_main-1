@@ -24,7 +24,7 @@ function StepsSection({ n = "06" }) {
                   <span className="font-display text-[52px] font-medium leading-none tracking-tightest text-paper/25 transition-colors duration-600 group-hover:text-terracotta-300">
                     {s.step}
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-wider2 text-paper/35">
+                  <span className="font-mono text-[11.5px] sm:text-[10px] uppercase tracking-wider2 text-paper/35">
                     Step
                   </span>
                 </div>

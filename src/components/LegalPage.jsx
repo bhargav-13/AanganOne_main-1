@@ -105,7 +105,7 @@ function LegalPage({ label, title, intro, updated, children }) {
                             : 'border-transparent text-ink-400 hover:border-ink-200 hover:text-ink-700'
                         }`}
                       >
-                        <span className="font-mono text-[10px] text-ink-300">
+                        <span className="font-mono text-[11.5px] sm:text-[10px] text-ink-300">
                           {String(i + 1).padStart(2, '0')}
                         </span>
                         <span>{item.text.replace(/^\d+\.\s*/, '')}</span>

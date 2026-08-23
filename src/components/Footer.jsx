@@ -110,7 +110,7 @@ function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h3 className="font-mono text-[10.5px] font-medium uppercase tracking-wider2 text-paper/40">
+              <h3 className="font-mono text-[11.5px] sm:text-[10.5px] font-medium uppercase tracking-wider2 text-paper/40">
                 {col.title}
               </h3>
               <ul className="mt-6 space-y-3.5">
@@ -138,7 +138,7 @@ function Footer() {
             { label: 'Based in', value: 'Ahmedabad, Gujarat', href: null },
           ].map((c) => (
             <div key={c.label}>
-              <div className="font-mono text-[10.5px] uppercase tracking-wider2 text-paper/40">
+              <div className="font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 text-paper/40">
                 {c.label}
               </div>
               {c.href ? (

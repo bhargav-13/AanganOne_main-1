@@ -1,3 +1,5 @@
+import { LedgerStacked, ScaleStacked } from './sceneVariants'
+
 /* ==========================================================================
    Line-art scenes.
    Same grammar as CourtyardScene: 2px ink strokes, paper fills, sand shading,
@@ -14,11 +16,11 @@ const PAPER = '#FBF8F4'
 /* -------------------------------------------------------------------------
    1. Ledger → phone. The paper register giving way to the app.
    ------------------------------------------------------------------------- */
-export function LedgerScene({ className = '' }) {
+function LedgerWide() {
   return (
     <svg
       viewBox="0 0 1000 300"
-      className={`h-auto w-full ${className}`}
+      className="h-auto w-full"
       role="img"
       aria-label="Illustration: a paper maintenance ledger on the left, an arrow, and the same records on a phone with a paid receipt on the right"
     >
@@ -134,11 +136,11 @@ function Tower({ x, h, w = 46, lit = [], fill = PAPER }) {
   )
 }
 
-export function ScaleScene({ className = '' }) {
+function ScaleWide() {
   return (
     <svg
       viewBox="0 0 1000 300"
-      className={`h-auto w-full ${className}`}
+      className="h-auto w-full"
       role="img"
       aria-label="Illustration: a single society building, then a multi-tower complex, then a township — the same platform at three sizes"
     >
@@ -266,5 +268,34 @@ export function SkylineStrip({ className = '' }) {
       <rect width="100%" height="84" fill="url(#ao-skyline)" />
       <rect x="0" y="82" width="100%" height="1.25" fill={PAPER} opacity="0.26" />
     </svg>
+  )
+}
+
+/* -------------------------------------------------------------------------
+   Responsive wrappers: portrait on phones, wide from sm upwards.
+   ------------------------------------------------------------------------- */
+export function LedgerScene({ className = '' }) {
+  return (
+    <div className={className}>
+      <div className="sm:hidden">
+        <LedgerStacked />
+      </div>
+      <div className="hidden sm:block">
+        <LedgerWide />
+      </div>
+    </div>
+  )
+}
+
+export function ScaleScene({ className = '' }) {
+  return (
+    <div className={className}>
+      <div className="sm:hidden">
+        <ScaleStacked />
+      </div>
+      <div className="hidden sm:block">
+        <ScaleWide />
+      </div>
+    </div>
   )
 }
