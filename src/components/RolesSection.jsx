@@ -1,4 +1,4 @@
-import Icon from './Icon'
+import { RoleFigure } from './moreScenes'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import { ROLES } from '../data/site'
@@ -34,7 +34,7 @@ function RolesSection({ n = "05" }) {
                       i === 3 ? 'border-ink-900/25 text-ink-900' : 'border-paper/35 text-paper'
                     } transition-transform duration-600 ease-smooth group-hover:scale-110`}
                   >
-                    <Icon name={r.icon} className="h-6 w-6" />
+                    <RoleFigure kind={i} className="h-8 w-8" />
                   </span>
 
                   <h3 className={`mt-7 text-center font-display text-[23px] font-medium ${d.text}`}>

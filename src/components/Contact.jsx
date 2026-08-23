@@ -9,6 +9,7 @@ import DemoForm from './DemoForm'
 import FAQ from './FAQ'
 import Testimonials from './Testimonials'
 import IncludedSection from './IncludedSection'
+import { DemoCallScene } from './moreScenes'
 import { SITE, FAQS } from '../data/site'
 
 const CHANNELS = [
@@ -129,6 +130,19 @@ function Contact() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="band-tight bg-sand-50">
+          <div className="shell">
+            <Reveal>
+              <p className="index-label text-center text-terracotta-500">What a demo looks like</p>
+              <DemoCallScene className="mx-auto mt-8 max-w-[720px]" />
+              <p className="mx-auto mt-8 max-w-[46ch] text-center text-[15px] leading-relaxed text-ink-500">
+                Your committee on one side, us on the other, about thirty minutes — the gate flow,
+                the billing cycle and the resident app, walked through live.
+              </p>
+            </Reveal>
           </div>
         </section>
 

@@ -1,6 +1,7 @@
 import Icon from './Icon'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
+import { VaultScene } from './moreScenes'
 import { TRUST } from '../data/detail'
 
 function TrustSection({ n = '08' }) {
@@ -16,6 +17,10 @@ function TrustSection({ n = '08' }) {
           title={<>Society data is personal data.</>}
           lede="Names, flats, vehicles, visitors, payments — a society register holds all of it. Here is how it is handled."
         />
+
+        <Reveal className="mt-10 sm:mt-14">
+          <VaultScene className="mx-auto max-w-[720px]" />
+        </Reveal>
 
         <div className="mt-10 grid sm:mt-16 gap-px overflow-hidden rounded-card bg-paper/15 sm:grid-cols-2 lg:grid-cols-3">
           {TRUST.map((t, i) => (

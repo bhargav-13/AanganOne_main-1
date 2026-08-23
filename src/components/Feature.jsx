@@ -199,6 +199,7 @@ function Feature() {
                         src={m.image}
                         alt={m.name}
                         className="h-full w-full object-cover transition-transform duration-600 ease-smooth group-hover:scale-105"
+                        style={{ objectPosition: m.position || 'center' }}
                         loading="lazy"
                       />
                     </div>

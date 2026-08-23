@@ -102,17 +102,29 @@ function LedgerWide() {
 function Tower({ x, h, w = 46, lit = [], fill = PAPER }) {
   const y = 250 - h
   const r = w / 2
-  const rows = Math.max(1, Math.floor((h - 40) / 34))
-  const windows = []
 
+  /* Window geometry is derived from the tower width, not hardcoded — the
+     township towers are narrower (w=38) and fixed offsets pushed their
+     windows past the right wall. */
+  const ww = Math.round(w * 0.26) // window width
+  const gap = Math.round(w * 0.14) // gap between the two columns
+  const inset = (w - (ww * 2 + gap)) / 2 // centres the pair
+  const wh = Math.round(ww * 1.35) // window height
+  const rowGap = wh + 12
+
+  // rows that fit between the arch springing and the ground, with a margin
+  const usable = h - r - 14
+  const rows = Math.max(1, Math.floor(usable / rowGap))
+
+  const windows = []
   for (let i = 0; i < rows; i++) {
     for (let c = 0; c < 2; c++) {
-      const wx = x + 10 + c * 18
-      const wy = y + 26 + i * 34
+      const wx = x + inset + c * (ww + gap)
+      const wy = y + r + 6 + i * rowGap
       windows.push(
         <path
           key={`${i}-${c}`}
-          d={`M ${wx} ${wy + 16} L ${wx} ${wy + 6} A 6 6 0 0 1 ${wx + 12} ${wy + 6} L ${wx + 12} ${wy + 16} Z`}
+          d={`M ${wx} ${wy + wh} L ${wx} ${wy + ww / 2} A ${ww / 2} ${ww / 2} 0 0 1 ${wx + ww} ${wy + ww / 2} L ${wx + ww} ${wy + wh} Z`}
           fill={lit.some(([lr, lc]) => lr === i && lc === c) ? '#F0C9A8' : SAND}
           stroke={INK}
           strokeWidth="1.3"

@@ -14,10 +14,8 @@ export const SITE = {
   email: 'info@aanganone.com',
   sales: 'sales@aanganone.com',
   address: 'PNTC, Vejalpur, Times of India Press Road, Ahmedabad — 380015, Gujarat, India',
-  // TODO: replace both with the real listing URLs — these are store searches,
-  // which work but are not the canonical product pages.
-  playStore: 'https://play.google.com/store/search?q=AanganOne&c=apps',
-  appStore: 'https://apps.apple.com/in/search?term=AanganOne',
+  playStore: 'https://play.google.com/store/apps/details?id=com.mobile.aanganone',
+  appStore: 'https://apps.apple.com/in/iphone/search?term=aanganone',
   social: {
     instagram: 'https://instagram.com/aanganone',
     twitter: 'https://twitter.com/aanganone',
@@ -247,7 +245,7 @@ export const FAQS = [
 /* ------------------------------------------------------------------ */
 
 export const TEAM = [
-  { name: 'Mr. Durgesh Chavda', role: 'Founder & CEO', image: '/images/durgesh_profile_image.jpeg' },
-  { name: 'Mr. Vivek Changani', role: 'Co-Founder & CFO', image: '/images/vivek_profile_image.jpg' },
-  { name: 'Mr. Manas Vadodaria', role: 'CTO & Technical Head', image: '/images/manas_profile_image.png' },
+  { name: 'CA Durgesh Chavda', role: 'Founder & CEO', image: '/images/durgesh_profile_image.jpeg' },
+  { name: 'CA Vivek Changani', role: 'Co-Founder & CFO', image: '/images/vivek_profile_image.jpg' },
+  { name: 'Mr. Manas Vadodaria', role: 'CTO & Technical Head', image: '/images/manas_vadodaria.jpeg', position: '40% center' },
 ]

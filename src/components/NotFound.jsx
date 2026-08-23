@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import SEO from './SEO'
 import Icon from './Icon'
+import { ClosedGateScene } from './moreScenes'
 
 const SUGGESTIONS = [
   { to: '/features', label: 'Explore the features', n: '01' },
@@ -20,7 +21,8 @@ function NotFound() {
       <main id="main" className="relative flex flex-1 items-center overflow-hidden pt-[calc(var(--nav-h)+24px)] sm:pt-[calc(var(--nav-h)+48px)]">
         <div className="jaali pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000,transparent)]" />
 
-        <div className="shell relative py-20">
+        <div className="shell relative grid items-center gap-12 py-16 lg:grid-cols-[1fr_.85fr] lg:gap-16 lg:py-20">
+          <div>
           <p className="index-label">Error 404</p>
 
           <h1 className="display-xl mt-7 max-w-[14ch]">
@@ -58,6 +60,10 @@ function NotFound() {
               </Link>
             ))}
           </div>
+          </div>
+
+          {/* the gate, shut — the page title, drawn */}
+          <ClosedGateScene className="mx-auto max-w-[460px] lg:max-w-none" />
         </div>
       </main>
 
