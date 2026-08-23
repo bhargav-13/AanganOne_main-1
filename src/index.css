@@ -86,9 +86,11 @@
 
   .lede { @apply text-[1.0625rem] leading-[1.65] text-ink-500 sm:text-[1.1875rem]; }
 
-  /* Small caps index label — the editorial spine of the page */
+  /* Small caps index label — the editorial spine of the page.
+     Explicit leading: the wide tracking makes these wrap on narrow screens,
+     and mono default line-height leaves the lines touching. */
   .index-label {
-    @apply font-mono text-[11px] font-medium uppercase tracking-wider2 text-ink-400;
+    @apply font-mono text-[11px] font-medium uppercase leading-[1.7] tracking-wider2 text-ink-400;
   }
 
   .serif-italic { @apply font-display italic; }

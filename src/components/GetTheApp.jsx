@@ -113,7 +113,7 @@ function GetTheApp() {
                       alt="The AanganOne resident app"
                 width={900}
                 height={1614}
-                      className="absolute bottom-0 left-1/2 w-[72%] -translate-x-1/2 drop-shadow-2xl"
+                      className="absolute left-1/2 top-[53%] w-[64%] -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl"
                       loading="lazy"
                     />
                   </div>

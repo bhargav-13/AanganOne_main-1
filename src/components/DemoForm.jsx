@@ -285,11 +285,17 @@ function DemoForm({ id = 'demo', n = '09' }) {
                     </p>
                   )}
 
-                  <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                    <p className="max-w-[26ch] font-mono text-[11.5px] sm:text-[10.5px] uppercase tracking-wider2 text-ink-400">
+                  {/* Button first on mobile — the note is supporting text, and
+                      the wide mono tracking needs the full width to breathe. */}
+                  <div className="flex flex-col-reverse gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+                    <p className="font-mono text-[11px] uppercase leading-[1.7] tracking-[0.1em] text-ink-400 sm:max-w-[34ch] sm:text-[10.5px] sm:leading-[1.6]">
                       No obligation · reply within a business day
                     </p>
-                    <button type="submit" className="btn-ink" disabled={status === 'sending'}>
+                    <button
+                      type="submit"
+                      className="btn-ink w-full sm:w-auto"
+                      disabled={status === 'sending'}
+                    >
                       {status === 'sending' ? 'Sending…' : 'Request my demo'}
                       <Icon name="arrow" className="h-4 w-4" />
                     </button>

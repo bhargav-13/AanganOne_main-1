@@ -34,7 +34,10 @@ function FlowsSection({ n = '03' }) {
         {/* Flow selector */}
         <Reveal className="mt-10 sm:mt-16">
           <div className="rule-strong" />
-          <div className="grid grid-cols-2 md:grid-cols-4">
+          {/* 1px gaps over a rule-coloured background give the dividers, so
+              there is no nth-child border logic to get wrong when the column
+              count changes between breakpoints. */}
+          <div className="grid auto-rows-fr grid-cols-2 gap-px bg-[color:var(--rule-soft)] md:grid-cols-4">
             {FLOWS.map((f, i) => {
               const on = i === active
               return (
@@ -43,8 +46,9 @@ function FlowsSection({ n = '03' }) {
                   type="button"
                   onClick={() => setActive(i)}
                   aria-pressed={on}
-                  className={`group relative flex items-start gap-3 border-b border-r border-[color:var(--rule-soft)] p-5 text-left transition-colors duration-400 last:border-r-0 md:p-6 ${
-                    on ? 'bg-ink-900' : 'hover:bg-sand-50'
+                  /* Stacks on mobile so the label gets the full cell width. */
+                  className={`group relative flex h-full flex-col items-start gap-3 p-5 text-left transition-colors duration-400 md:flex-row md:gap-3 md:p-6 ${
+                    on ? 'bg-ink-900' : 'bg-paper hover:bg-sand-50'
                   }`}
                 >
                   <span
@@ -54,11 +58,11 @@ function FlowsSection({ n = '03' }) {
                   >
                     <Icon name={f.icon} className="h-[17px] w-[17px]" />
                   </span>
-                  <span>
-                    <span className={`block font-mono text-[11.5px] sm:text-[10px] uppercase tracking-wider2 ${on ? 'text-paper/50' : 'text-ink-300'}`}>
+                  <span className="min-w-0">
+                    <span className={`block font-mono text-[11.5px] uppercase tracking-wider2 sm:text-[10px] ${on ? 'text-paper/50' : 'text-ink-300'}`}>
                       0{i + 1}
                     </span>
-                    <span className={`mt-1 block font-display text-[17px] font-medium leading-tight ${on ? 'text-paper' : 'text-ink-900'}`}>
+                    <span className={`mt-1 block font-display text-[16px] font-medium leading-snug md:text-[17px] ${on ? 'text-paper' : 'text-ink-900'}`}>
                       {f.label}
                     </span>
                   </span>
@@ -101,7 +105,7 @@ function FlowsSection({ n = '03' }) {
                 alt={`AanganOne app — ${flow.label}`}
                 width={900}
                 height={1614}
-                className="absolute bottom-0 left-1/2 w-[74%] -translate-x-1/2 drop-shadow-2xl"
+                className="absolute left-1/2 top-[53%] w-[64%] -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl"
                 loading="lazy"
               />
             </div>

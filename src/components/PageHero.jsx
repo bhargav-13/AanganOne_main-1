@@ -20,8 +20,14 @@ function PageHero({ label, title, lede, meta = [], children }) {
           </p>
         )}
 
+        {/* Buttons sit side by side on mobile — each takes an equal share of
+            the row with tighter padding, then returns to natural width from
+            sm up. Targets the children so every page's hero behaves alike. */}
         {children && (
-          <div className="mt-10 flex animate-rise flex-wrap items-center gap-3" style={{ animationDelay: '250ms' }}>
+          <div
+            className="mt-10 flex animate-rise items-center gap-3 [&>*]:min-w-0 [&>*]:flex-1 [&>*]:px-3 [&>*]:text-[13.5px] sm:flex-wrap sm:[&>*]:flex-none sm:[&>*]:px-7 sm:[&>*]:text-[15px]"
+            style={{ animationDelay: '250ms' }}
+          >
             {children}
           </div>
         )}

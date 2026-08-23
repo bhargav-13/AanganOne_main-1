@@ -66,12 +66,22 @@ function Hero() {
             admins, committee members and guards.
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 md:justify-end">
-            <Link to="/contact" className="btn-ink">
+          {/* Side by side on mobile: each takes half the row, tighter padding,
+              and the arrow steps aside so the labels never wrap. */}
+          <div className="flex items-center gap-3 md:flex-wrap md:justify-end">
+            <Link
+              to="/contact"
+              className="btn-ink flex-1 whitespace-nowrap px-4 text-[14px] sm:flex-none sm:px-7 sm:text-[15px]"
+            >
               Book a free demo
-              <Icon name="arrow" className="h-4 w-4" />
+              <Icon name="arrow" className="hidden h-4 w-4 sm:inline-block" />
             </Link>
-            <Link to="/features" className="btn-line">See what's inside</Link>
+            <Link
+              to="/features"
+              className="btn-line flex-1 whitespace-nowrap px-4 text-[14px] sm:flex-none sm:px-7 sm:text-[15px]"
+            >
+              See what's inside
+            </Link>
           </div>
         </div>
 
@@ -95,7 +105,10 @@ function Hero() {
         <div className="relative mx-auto max-w-[1120px] overflow-hidden rounded-card border border-[color:var(--rule)] bg-sand-50">
           <div className="jaali pointer-events-none absolute inset-0" />
 
-          <div className="relative grid gap-10 p-6 sm:gap-12 sm:p-12 lg:grid-cols-[1fr_.85fr] lg:items-center lg:gap-10 lg:p-14">
+          {/* minmax(0,…) on every track: the truncated labels below are
+              white-space:nowrap, so an `auto` track sizes to their full text
+              width and overflows the card. */}
+          <div className="relative grid grid-cols-[minmax(0,1fr)] gap-10 p-6 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,.85fr)] lg:items-center lg:gap-10 lg:p-14">
             {/* --- Left: statement + live activity --- */}
             <div>
               <span className="inline-flex items-center gap-2.5 rounded-pill border border-ink-900/12 bg-paper px-4 py-2">
@@ -146,7 +159,7 @@ function Hero() {
                   alt="The AanganOne resident app"
                   width={900}
                   height={1614}
-                  className="absolute bottom-0 left-1/2 w-[74%] -translate-x-1/2 drop-shadow-2xl"
+                  className="absolute left-1/2 top-[53%] w-[64%] -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl"
                   loading="eager"
                   fetchPriority="high"
                 />

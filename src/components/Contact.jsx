@@ -217,7 +217,7 @@ function Contact() {
                         alt="The AanganOne community dashboard"
                         width={1095}
                         height={1963}
-                        className="absolute bottom-0 left-1/2 w-[74%] -translate-x-1/2"
+                        className="absolute left-1/2 top-[53%] w-[64%] -translate-x-1/2 -translate-y-1/2"
                         loading="lazy"
                       />
                     </div>

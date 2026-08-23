@@ -106,10 +106,10 @@ function MiniTower({ x, baseline, h, w = 40, lit = false, fill = PAPER }) {
 
 export function ScaleStacked() {
   const rows = [
-    { label: 'ONE SOCIETY', baseline: 118, towers: [{ x: 172, h: 78, lit: true }] },
+    { label: 'ONE SOCIETY', baseline: 110, towers: [{ x: 172, h: 78, lit: true }] },
     {
       label: 'MULTI-TOWER',
-      baseline: 288,
+      baseline: 320,
       towers: [
         { x: 118, h: 64 },
         { x: 168, h: 92, lit: true, fill: SAND },
@@ -118,7 +118,7 @@ export function ScaleStacked() {
     },
     {
       label: 'TOWNSHIP',
-      baseline: 458,
+      baseline: 530,
       towers: [
         { x: 86, h: 58, w: 34 },
         { x: 128, h: 86, w: 34, lit: true, fill: SAND },
@@ -131,7 +131,7 @@ export function ScaleStacked() {
 
   return (
     <svg
-      viewBox="0 0 400 540"
+      viewBox="0 0 400 620"
       className="mx-auto h-auto w-full max-w-[320px]"
       role="img"
       aria-label="Illustration: a single society building, then a multi-tower complex, then a township — the same platform at three sizes"
@@ -144,7 +144,7 @@ export function ScaleStacked() {
           <line x1="60" y1={row.baseline} x2="340" y2={row.baseline} stroke={INK} strokeWidth="2.2" />
           <text
             x="200"
-            y={row.baseline + 28}
+            y={row.baseline + 32}
             textAnchor="middle"
             fontSize="19"
             fontFamily="IBM Plex Mono, monospace"
@@ -158,16 +158,16 @@ export function ScaleStacked() {
             <>
               <line
                 x1="200"
-                y1={row.baseline + 46}
+                y1={row.baseline + 54}
                 x2="200"
-                y2={row.baseline + 78}
+                y2={row.baseline + 94}
                 stroke={INDIGO}
                 strokeWidth="2"
                 strokeDasharray="6 6"
                 strokeLinecap="round"
               />
               <path
-                d={`M 192 ${row.baseline + 72} l 8 10 l 8 -10`}
+                d={`M 192 ${row.baseline + 88} l 8 10 l 8 -10`}
                 fill="none"
                 stroke={INDIGO}
                 strokeWidth="2"
