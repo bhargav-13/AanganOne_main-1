@@ -15,7 +15,11 @@ const SUGGESTIONS = [
 function NotFound() {
   return (
     <div className="flex min-h-screen flex-col bg-paper">
-      <SEO title="Page Not Found | AanganOne" description="The page you are looking for does not exist." />
+      <SEO
+        title="Page Not Found | AanganOne"
+        description="The page you are looking for does not exist."
+        robots="noindex, follow"
+      />
       <Navbar />
 
       <main id="main" className="relative flex flex-1 items-center overflow-hidden pt-[calc(var(--nav-h)+24px)] sm:pt-[calc(var(--nav-h)+48px)]">

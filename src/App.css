@@ -27,7 +27,7 @@
 
 /* Legacy section headings used by the Privacy / Terms pages */
 .section-title {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.12;
   letter-spacing: -0.032em;

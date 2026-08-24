@@ -1,8 +1,19 @@
 import React, { Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import SmoothScroll from './components/SmoothScroll'
 import Chatbot from './components/Chatbot'
 import './App.css'
+
+/* Fades/rises the page content in on every route change. */
+function PageTransition({ children }) {
+    const location = useLocation()
+    return (
+        <div key={location.pathname} className="page-transition">
+            {children}
+        </div>
+    )
+}
 
 // Lazy loaded routes for code splitting
 const Home = React.lazy(() => import('./components/Home'))
@@ -33,6 +44,7 @@ const LoadingFallback = () => (
 function App() {
     return (
             <Router>
+                <SmoothScroll />
                 <ScrollToTop />
 
                 {/* Keyboard users land here first */}
@@ -46,20 +58,22 @@ function App() {
                 <Chatbot />
 
                 <Suspense fallback={<LoadingFallback />}>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/features" element={<HowItWorks />} />
-                        <Route path="/pricing" element={<Pricing />} />
-                        <Route path="/app" element={<GetTheApp />} />
-                        <Route path="/resources" element={<Blog />} />
-                        <Route path="/resources/:slug" element={<Article />} />
-                        <Route path="/about" element={<Feature />} />
-                        <Route path="/our-story" element={<OurStory />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
+                    <PageTransition>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/features" element={<HowItWorks />} />
+                            <Route path="/pricing" element={<Pricing />} />
+                            <Route path="/app" element={<GetTheApp />} />
+                            <Route path="/resources" element={<Blog />} />
+                            <Route path="/resources/:slug" element={<Article />} />
+                            <Route path="/about" element={<Feature />} />
+                            <Route path="/our-story" element={<OurStory />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </PageTransition>
                 </Suspense>
             </Router>
     )

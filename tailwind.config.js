@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Editorial serif for display, humanist grotesque for everything else.
-        display: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // SF Pro Text for headers/main text, DM Sans for body/description text.
+        display: ['"SF Pro Text"', '-apple-system', 'BlinkMacSystemFont', 'ui-sans-serif', 'sans-serif'],
+        sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
